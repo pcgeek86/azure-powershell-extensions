@@ -1,0 +1,9 @@
+### AppVeyor.yml Build Configuration file
+
+os: Unstable
+
+clone_folder: c:\repos\AzureExt
+
+environment:
+  psgalleryapikey: REPLACEMEWITHENCRYPTEDVALUE
+

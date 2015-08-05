@@ -28,7 +28,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="AppVeyor.yml" />
-    <Content Include="Help\about_AzureAuthentication.help.txt" />
+    <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Build\" />
-    <Folder Include="Help\" />
+    <Folder Include="en-us\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
