@@ -35,10 +35,16 @@
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
     <Compile Include="AzureExt.tests.ps1" />
+    <Compile Include="Functions\Public\azrdp.ps1" />
+    <Compile Include="Completers\Microsoft.Azure.ArgumentCompleters.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Build\" />
     <Folder Include="en-us\" />
+    <Folder Include="Functions\" />
+    <Folder Include="Functions\Public\" />
+    <Folder Include="Functions\Private\" />
+    <Folder Include="Completers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

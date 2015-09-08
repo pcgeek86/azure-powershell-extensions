@@ -1,11 +1,21 @@
 TOPIC
-    about_AzureAuthentication
+    about_AzureExtensions
 
 SHORT DESCRIPTION
-    A short, one-line description of the topic contents.
+    This help topic describes the Azure Extensions PowerShell module, and the enhancements
+	it provides on top of the core Azure PowerShell experience.
 
 LONG DESCRIPTION
-    A detailed, full description of the subject or purpose of the module.
+    The Microsoft Azure PowerShell module actually offers two different modules: Azure Service Management (ASM)
+	and Azure Resource Manager (ARM). These modules are generally well-done, however there are some usability
+	enhancements that are intended to be fulfilled through this Azure Extensions module.
+
+	The Azure Extensions module will offer additional functionality, including:
+
+	- PowerShell command aliases, to simplify interactive use of core Azure PowerShell commands
+	- PowerShell built-in about_* documentation topics
+	- PowerShell types.ps1xml files, to help format object output
+	- PowerShell 
 
 EXAMPLES
     Examples of how to use the module or how the subject feature works in practice.

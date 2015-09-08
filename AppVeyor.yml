@@ -1,9 +1,14 @@
 ### AppVeyor.yml Build Configuration file
 
+branches:
+  only:
+    - production
+
 os: Unstable
 
 clone_folder: c:\repos\AzureExt
 
 environment:
-  psgalleryapikey: REPLACEMEWITHENCRYPTEDVALUE
+  secure:
+    psgalleryapikey: w6SGv8TcA94VIlLDtj1WGYHpUX3hU3yv8J14VoW2ds+PehjpNgCTheE2HuGhCkTb
 
