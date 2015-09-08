@@ -5,9 +5,8 @@ branches:
     - production
 
 ### Disable the build process
-build_script:
-  - ps: Publish-Module -NuGetApiKey $env:psgalleryapikey -Path $env:APPVEYOR_BUILD_FOLDER;
-
+build: off
+  
 os: Unstable
 
 clone_folder: c:\repos\AzureExt
@@ -16,3 +15,5 @@ environment:
   secure:
     psgalleryapikey: w6SGv8TcA94VIlLDtj1WGYHpUX3hU3yv8J14VoW2ds+PehjpNgCTheE2HuGhCkTb
 
+deploy_script:
+	- ps: Publish-Module -NuGetApiKey $env:psgalleryapikey -Path $env:APPVEYOR_BUILD_FOLDER;
