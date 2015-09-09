@@ -27,7 +27,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="AppVeyor.yml" />
+    <Content Include="appveyor2.yml" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="README.md" />
   </ItemGroup>

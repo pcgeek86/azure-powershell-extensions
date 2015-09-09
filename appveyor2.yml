@@ -17,3 +17,5 @@ environment:
 
 deploy_script:
 	- ps: Publish-Module -NuGetApiKey $env:psgalleryapikey -Path $env:APPVEYOR_BUILD_FOLDER;
+
+ 
