@@ -12,7 +12,7 @@ os: Unstable
 clone_folder: c:\repos\AzureExt
 
 environment:
-  psgalleryapikey:
+  PSGalleryApiKey:
     secure: w6SGv8TcA94VIlLDtj1WGYHpUX3hU3yv8J14VoW2ds+PehjpNgCTheE2HuGhCkTb
 
 deploy_script:
