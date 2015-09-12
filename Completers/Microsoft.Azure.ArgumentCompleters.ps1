@@ -93,7 +93,7 @@ function CloudService_ServiceNameCompleter
         return $ServiceNameCache
     }
 
-    $ItemList = Get-AzureService | Where-Object { $PSItem.ServiceName -match ${wordToComplete} } | ForEach-Object {
+    $ItemList = Get-AzureService | Where-Object { $PSItem.ServiceName -match $wordToComplete } | ForEach-Object {
         $CompletionResult = @{
             CompletionText = $PSItem.ServiceName
             ToolTip = 'Cloud Service in "{0}" region.' -f $PSItem.ExtendedProperties.ResourceLocation
@@ -177,7 +177,7 @@ function AzureVirtualMachine_NameCompleter
     }
 
     ### Create fresh completion results for Azure virtual machines
-    $ItemList = Get-AzureVM | Where-Object { $PSItem.Name -match ${wordToComplete} } | ForEach-Object {
+    $ItemList = Get-AzureVM | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
         $CompletionResult = @{
             CompletionText = '{0} -ServiceName {1}' -f $PSItem.Name, $PSItem.ServiceName
             ToolTip = 'Azure VM {0}/{1} in state {2}.' -f $PSItem.ServiceName, $PSItem.Name, $PSItem.Status
@@ -193,6 +193,49 @@ function AzureVirtualMachine_NameCompleter
 
     ### Return the fresh completion results
     return $ItemList
+}
+
+#
+# .SYNOPSIS
+#
+#    Auto-complete the -Location parameter value for Azure cmdlets.
+#
+# .NOTES
+#    
+#    Created by Trevor Sullivan <trevor@trevorsullivan.net>
+#    http://trevorsullivan.net
+#    http://twitter.com/pcgeek86
+#
+function Azure_LocationCompleter
+{
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    ### Attempt to read Azure virtual machine details from the cache
+    $CacheKey = 'Azure_LocationCache';
+    $Cache = Get-CompletionPrivateData -Key $CacheKey;
+
+    ### If there is a valid cache for the Azure virtual machine names, then go ahead and return them immediately
+    if ($Cache -and (Get-Date) -gt $Cache.ExpirationTime) {
+        return $Cache;
+    }
+
+    ### Create fresh completion results for Azure virtual machines
+    $ItemList = Get-AllAzureLocations | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+        $CompletionResult = @{
+            CompletionText = $PSItem;
+            ToolTip = $PSItem;
+            ListItemText = $PSItem;
+            CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+            NoQuotes = $false;
+            }
+        New-CompletionResult @CompletionResult;
+    }
+    
+    ### Update the cache for Azure virtual machines
+    Set-CompletionPrivateData -Key $CacheKey -Value $ItemList;
+
+    ### Return the fresh completion results
+    return $ItemList;
 }
 
 if (Get-Command -Name Register-ArgumentCompleter -Module TabExpansion++) {
@@ -217,13 +260,31 @@ if (Get-Command -Name Register-ArgumentCompleter -Module TabExpansion++) {
             ScriptBlock = $function:StorageAccount_StorageAccountNameCompleter;
         }
         @{
-            Command = @('Get-AzureStorageContainerAcl', 'Get-AzureSiteRecoveryProtectionContainer', 'Get-AzureStorageContainer', 'New-AzureStorageContainer', 'New-AzureStorageContainerSASToken', 'Remove-AzureStorageContainer', 'Set-AzureStorageContainerAcl');
+            Command = @('Get-AzureStorageContainerAcl', 
+                        'Get-AzureSiteRecoveryProtectionContainer', 
+                        'Get-AzureStorageContainer', 
+                        'New-AzureStorageContainer', 
+                        'New-AzureStorageContainerSASToken', 
+                        'Remove-AzureStorageContainer', 
+                        'Set-AzureStorageContainerAcl');
             Parameter = 'Name';
             Description = 'Complete the -Name parameter value for Azure cmdlets:  Get-AzureStorageContainer -Context $Context -Name <TAB>';
             ScriptBlock = $function:AzureStorage_StorageContainerNameCompleter;
         }
         @{
-            Command = @('Add-AzureCertificate', 'Add-AzureDns', 'Add-AzureInternalLoadBalancer', 'Export-AzureVM', 'Get-AzureCertificate', 'Get-AzureDeployment', 'Get-AzureDeploymentEvent', 'Get-AzureInternalLoadBalancer', 'Get-AzureRemoteDesktopFile', 'Get-AzureRole', 'Get-AzureService', 'Get-AzureServiceADDomainExtension', 'Get-AzureServiceAntimalwareConfig', 'Get-AzureServiceDiagnosticsExtension', 'Get-AzureServiceExtension', 'Get-AzureServiceRemoteDesktopExtension', 'Get-AzureVM', 'Get-AzureWinRMUri', 'Move-AzureDeployment', 'New-AzureDeployment', 'New-AzureQuickVM', 'New-AzureService', 'New-AzureServiceProject', 'New-AzureVM', 'Publish-AzureServiceProject', 'Remove-AzureCertificate', 'Remove-AzureDeployment', 'Remove-AzureDns', 'Remove-AzureInternalLoadBalancer', 'Remove-AzureService', 'Remove-AzureServiceADDomainExtension', 'Remove-AzureServiceAntimalwareExtension', 'Remove-AzureServiceDiagnosticsExtension', 'Remove-AzureServiceExtension', 'Remove-AzureServiceRemoteDesktopExtension', 'Remove-AzureVM', 'Reset-AzureRoleInstance', 'Restart-AzureVM', 'Save-AzureVMImage', 'Set-AzureDeployment', 'Set-AzureDns', 'Set-AzureInternalLoadBalancer', 'Set-AzureLoadBalancedEndpoint', 'Set-AzureRole', 'Set-AzureService', 'Set-AzureServiceADDomainExtension', 'Set-AzureServiceAntimalwareExtension', 'Set-AzureServiceDiagnosticsExtension', 'Set-AzureServiceExtension', 'Set-AzureServiceRemoteDesktopExtension', 'Set-AzureWalkUpgradeDomain', 'Start-AzureService', 'Start-AzureVM', 'Stop-AzureService', 'Stop-AzureVM', 'Update-AzureVM');
+            Command = @('Add-AzureCertificate', 
+                        'Add-AzureDns', 
+                        'Add-AzureInternalLoadBalancer', 
+                        'Export-AzureVM', 
+                        'Get-AzureCertificate', 
+                        'Get-AzureDeployment', 
+                        'Get-AzureDeploymentEvent', 
+                        'Get-AzureInternalLoadBalancer', 
+                        'Get-AzureRemoteDesktopFile', 
+                        'Get-AzureRole', 
+                        'Get-AzureService', 
+                        'Get-AzureServiceADDomainExtension', 
+                        'Get-AzureServiceAntimalwareConfig', 'Get-AzureServiceDiagnosticsExtension', 'Get-AzureServiceExtension', 'Get-AzureServiceRemoteDesktopExtension', 'Get-AzureVM', 'Get-AzureWinRMUri', 'Move-AzureDeployment', 'New-AzureDeployment', 'New-AzureQuickVM', 'New-AzureService', 'New-AzureServiceProject', 'New-AzureVM', 'Publish-AzureServiceProject', 'Remove-AzureCertificate', 'Remove-AzureDeployment', 'Remove-AzureDns', 'Remove-AzureInternalLoadBalancer', 'Remove-AzureService', 'Remove-AzureServiceADDomainExtension', 'Remove-AzureServiceAntimalwareExtension', 'Remove-AzureServiceDiagnosticsExtension', 'Remove-AzureServiceExtension', 'Remove-AzureServiceRemoteDesktopExtension', 'Remove-AzureVM', 'Reset-AzureRoleInstance', 'Restart-AzureVM', 'Save-AzureVMImage', 'Set-AzureDeployment', 'Set-AzureDns', 'Set-AzureInternalLoadBalancer', 'Set-AzureLoadBalancedEndpoint', 'Set-AzureRole', 'Set-AzureService', 'Set-AzureServiceADDomainExtension', 'Set-AzureServiceAntimalwareExtension', 'Set-AzureServiceDiagnosticsExtension', 'Set-AzureServiceExtension', 'Set-AzureServiceRemoteDesktopExtension', 'Set-AzureWalkUpgradeDomain', 'Start-AzureService', 'Start-AzureVM', 'Stop-AzureService', 'Stop-AzureVM', 'Update-AzureVM');
             Parameter = 'ServiceName';
             Description = 'Complete the -ServiceName parameter value for Azure cmdlets:  Get-AzureService -ServiceName <TAB>';
             ScriptBlock = $function:CloudService_ServiceNameCompleter;
@@ -235,14 +296,79 @@ if (Get-Command -Name Register-ArgumentCompleter -Module TabExpansion++) {
             ScriptBlock = $function:Subscription_SubscriptionNameCompleter;
         }
         @{
-            Command = @('Export-AzureVM', 'Get-AzureVM', 'Remove-AzureVM', 'Restart-AzureVM', 'Start-AzureVM', 'Stop-AzureVM', 'Update-AzureVM');
+            Command = @('Export-AzureVM', 
+                        'Get-AzureVM', 
+                        'Remove-AzureVM', 
+                        'Restart-AzureVM', 
+                        'Start-AzureVM', 
+                        'Stop-AzureVM', 
+                        'Update-AzureVM',
+                        'Get-AzureRemoteDesktopFile');
             Parameter = 'Name';
             Description = 'Complete the -Name parameter value for Azure virtual machine cmdlets:  Stop-AzureVM -Name <TAB>';
             ScriptBlock = $function:AzureVirtualMachine_NameCompleter;
         }
+        @{
+            Command = @(
+                    'Add-AlertRule',
+                    'Add-AutoscaleSetting',
+                    'Add-AzureApiManagementRegion',
+                    'Get-AzureHDInsightProperties',
+                    'Get-AzureStreamAnalyticsQuota',
+                    'Get-AzureVMExtensionImage',
+                    'Get-AzureVMExtensionImageType',
+                    'Get-AzureVMImage',
+                    'Get-AzureVMImageOffer',
+                    'Get-AzureVMImagePublisher',
+                    'Get-AzureVMImageSku',
+                    'Get-AzureVMSize',
+                    'Get-AzureVMUsage',
+                    'New-AzureApiManagement',
+                    'New-AzureApiManagementVirtualNetwork',
+                    'New-AzureApplicationGateway',
+                    'New-AzureAppServicePlan',
+                    'New-AzureAutomationAccount',
+                    'New-AzureAvailabilitySet',
+                    'New-AzureBatchAccount',
+                    'New-AzureDataFactory',
+                    'New-AzureHDInsightCluster',
+                    'New-AzureKeyVault',
+                    'New-AzureLoadBalancer',
+                    'New-AzureLocalNetworkGateway',
+                    'New-AzureNetworkInterface',
+                    'New-AzureNetworkSecurityGroup',
+                    'New-AzureOperationalInsightsWorkspace',
+                    'New-AzurePublicIpAddress',
+                    'New-AzureRedisCache',
+                    'New-AzureResource',
+                    'New-AzureResourceGroup',
+                    'New-AzureRouteTable',
+                    'New-AzureSiteRecoveryVault',
+                    'New-AzureSqlServer',
+                    'New-AzureStorageAccount',
+                    'New-AzureVirtualNetwork',
+                    'New-AzureVirtualNetworkGateway',
+                    'New-AzureVirtualNetworkGatewayConnection',
+                    'New-AzureVM',
+                    'New-AzureWebApp',
+                    'Remove-AzureApiManagementRegion',
+                    'Set-AzureAppServicePlan',
+                    'Set-AzureVMAccessExtension',
+                    'Set-AzureVMCustomScriptExtension',
+                    'Set-AzureVMDiagnosticsExtension',
+                    'Set-AzureVMDscExtension',
+                    'Set-AzureVMExtension',
+                    'Set-AzureVMSqlServerExtension',
+                    'Test-AzureDnsAvailability',
+                    'Update-AzureApiManagementDeployment',
+                    'Update-AzureApiManagementRegion'
+            );
+            Parameter = 'Location';
+            Description = 'Complete the -Location parameter value for Azure Resource Manager cmdlets: New-AzureResource -Location <TAB>';
+            ScriptBlock = $function:Azure_LocationCompleter;
+        }
     );
 
-    
     foreach ($ArgumentCompleter in $ArgumentCompleterList) {
         TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
     }

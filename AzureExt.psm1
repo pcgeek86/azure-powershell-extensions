@@ -1,47 +1,24 @@
 #region Aliases
 ### This section contains aliases that will be exported from the module.
 
-#region Azure Profile Aliases
-$AliasList = @(
-	@{  Name = 'aazac'; 
-		Value = 'Add-AzureAccount';
-		Description = 'Authenticate to Microsoft Azure Active Directory (AAD).'; }
-	@{  Name = 'selazsub'; 
-		Value = 'Select-AzureSubscription';
-		Description = 'Select an Azure susbcription to perform automation tasks on.'; }
-	@{  Name = 'gazsub'; 
-		Value = 'Get-AzureSubscription';
-		Description = 'Get a list of Azure subscriptions in the user''s local cache.'; }
-	@{  Name = 'nazprof'; 
-		Value = 'New-AzureProfile';
-		Description = 'Creates a new Azure Profile'; }
-	@{  Name = 'razprof'; 
-		Value = 'New-AzureProfile';
-		Description = 'Creates a new Azure Profile'; }
-	@{  Name = 'clazprof'; 
-		Value = 'Clear-AzureProfile';
-		Description = 'Clears cached Azure Profiles'; }
-	);
-
-foreach ($Alias in $AliasList){
-	New-Alias @Alias;
+### Import all aliases from the Aliases folder.
+$AliasFileList = Get-ChildItem -Path $PSScriptRoot\Aliases\*Aliases.json;
+foreach ($AliasFile in $AliasFileList){
+	$AliasJson = ConvertFrom-Json -InputObject (Get-Content -Path $AliasFile -Raw);
+    foreach ($Alias in $AliasJson.Aliases) {
+        ### Validate that each alias has a name and value defined. The description is optional.
+        if ($Alias.Name -and $Alias.Value) {
+            $NewAlias = @{
+                Name = $Alias.Name;
+                Value = $Alias.Value;
+                Description = $Alias.Description;
+            }
+            New-Alias @NewAlias;
+        } else {
+            Write-Warning -Message ('Alias skipped in file {0}' -f $AliasFile.Name);
+        }
+    }
 }
-#endregion
-
-#region Azure Service Management (ASM) Aliases
-New-Alias -Name nazvm -Value New-AzureVM -Description 'Create an Azure Virtual Machine from a VM configuration object.';
-New-Alias -Name nazvmc -Value New-AzureVMConfig -Description 'Create an Azure Virtual Machine configuration object.';
-
-New-Alias -Name nazsa -Value New-AzureStorageAccount -Description 'Create an Azure Storage Account.';
-New-Alias -Name razsa -Value Remove-AzureStorageAccount -Description 'Remove an Azure Storage Account.';
-
-New-Alias -Name nazsqlsrv -Value New-AzureSqlDatabaseServer -Description 'Create an Azure SQL Database Server.';
-New-Alias -Name razsqlsrv -Value Remove-AzureSqlDatabaseServer -Description 'Remove an Azure SQL Database Server.';
-#endregion
-
-#region Azure Resource Manager (ARM) Aliases
-#endregion
-
 #endregion
 
 #region Functions
@@ -49,6 +26,7 @@ New-Alias -Name razsqlsrv -Value Remove-AzureSqlDatabaseServer -Description 'Rem
 #region Public Functions
 $FunctionList = Get-ChildItem -Path $PSScriptRoot\Functions\Public;
 foreach ($Function in $FunctionList) {
+    Write-Verbose -Message ('Importing function file: {0}' -f $Function.FullName);
 	. $Function.FullName;
 }
 #endregion Public Functions
@@ -56,6 +34,7 @@ foreach ($Function in $FunctionList) {
 #region Private Functions
 $FunctionList = Get-ChildItem -Path $PSScriptRoot\Functions\Private;
 foreach ($Function in $FunctionList) {
+    Write-Verbose -Message ('Importing function file: {0}' -f $Function.FullName);
 	. $Function.FullName;
 }
 #endregion Private Functions
@@ -69,4 +48,13 @@ foreach ($CompleterScript in $CompleterScriptList) {
     Write-Verbose -Message ('Import argument completer script: {0}' -f $CompleterScript.FullName);
     & $CompleterScript.FullName;
 }
+#endregion
+
+#region Format Data
+
+$FormatFileList = Get-ChildItem -Path "$PSScriptRoot\Format Types" -Filter *format.ps1xml;
+foreach ($FormatFile in $FormatFileList) {
+    Update-FormatData -PrependPath $FormatFile.FullName;
+}
+
 #endregion

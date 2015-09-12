@@ -1,0 +1,34 @@
+{
+    "aliases": [
+      {
+          "Description":  "Creates a new Azure Web App.",
+          "Name":  "nazwa",
+          "Value":  "New-AzureWebApp"
+      },
+      {
+          "Description":  "Removes an Azure Web App.",
+          "Name":  "razwa",
+          "Value":  "Remove-AzureWebApp"
+      },
+      {
+          "Description":  "Starts an Azure Web App.",
+          "Name":  "saazwa",
+          "Value":  "Start-AzureWebApp"
+      },
+      {
+          "Description":  "Stops an Azure Web App.",
+          "Name":  "spazwa",
+          "Value":  "Stop-AzureWebApp"
+      },
+      {
+          "Description":  "Retrieves an Azure Web App.",
+          "Name":  "gazwa",
+          "Value":  "Get-AzureWebApp"
+      },
+      {
+          "Description":  "Retrieves the publishing profile for an Azure Web App.",
+          "Name":  "gazwapub",
+          "Value":  "Get-AzureWebAppPublishingProfile"
+      }
+    ]
+}

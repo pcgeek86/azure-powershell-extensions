@@ -27,6 +27,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Aliases\Azure.ResourceManager.Aliases.json" />
+    <Content Include="Aliases\Azure.AppService.Aliases.json" />
+    <Content Include="Aliases\Azure.Storage.Aliases.json" />
+    <Content Include="Aliases\Azure.VirtualMachine.Aliases.json" />
     <Content Include="appveyor.yml" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="README.md" />
@@ -35,8 +39,13 @@
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
     <Compile Include="AzureExt.tests.ps1" />
-    <Compile Include="Functions\Public\azrdp.ps1" />
+    <Compile Include="Aliases\Azure.Profile.Aliases.json" />
+    <Compile Include="Format Types\Azure.ResourceGroup.format.ps1xml" />
+    <Compile Include="Functions\Private\Get-AllAzureLocations.ps1" />
+    <Compile Include="Functions\Public\Invoke-AzureRemoteDesktop.ps1" />
     <Compile Include="Completers\Microsoft.Azure.ArgumentCompleters.ps1" />
+    <Compile Include="Functions\Public\Publish-AzureStorageBlob.ps1" />
+    <Compile Include="Functions\Public\Unpublish-AzureStorageBlob.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Build\" />
@@ -45,6 +54,9 @@
     <Folder Include="Functions\Public\" />
     <Folder Include="Functions\Private\" />
     <Folder Include="Completers\" />
+    <Folder Include="Aliases\" />
+    <Folder Include="Format Types\" />
+    <Folder Include="Type Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

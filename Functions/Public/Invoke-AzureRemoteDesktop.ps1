@@ -1,6 +1,4 @@
-#requires -Modules Azure;
-
-function azrdp {
+function Invoke-AzureRemoteDesktop {
     <#
     .Author
     Trevor Sullivan <pcgeek86@gmail.com>

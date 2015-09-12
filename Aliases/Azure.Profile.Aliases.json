@@ -1,0 +1,27 @@
+{
+    "aliases": [
+      {
+        "Name": "nazpr",
+        "Value": "New-AzureRMProfile",
+        "Description": "Creates a new Azure Profile object."
+      },
+      {
+        "Name": "razpr",
+        "Value": "Remove-AzureRMProfile",
+        "Description": "Removes an Azure Profile object."
+      },
+      {
+        "Description": "Makes an Azure Profile the \"current\" profile.",
+        "Name": "selazpr",
+        "Value": "Select-AzureRMProfile"
+      },
+      {
+        "Name": "clazpr",
+        "Value":  "Clear-AzureRMProfile"
+      },
+      {
+        "Name": "svazpr",
+        "Value":  "Save-AzureRMProfile"
+      }
+    ]
+}

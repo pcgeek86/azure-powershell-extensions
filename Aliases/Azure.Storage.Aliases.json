@@ -1,0 +1,24 @@
+{
+    "aliases": [
+      {
+        "Name": "nazsa",
+        "Value": "New-AzureStorageAccount"
+      },
+      {
+        "Name": "razsa",
+        "Value": "Remove-AzureStorageAccount"
+      },
+      {
+        "Name": "",
+        "Value": ""
+      },
+      {
+        "Name": "",
+        "Value": ""
+      },
+      {
+        "Name": "",
+        "Value": ""
+      }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "aliases": [
+      {
+        "Name": "gazrg",
+        "Value": "Get-AzureResourceGroup"
+      },
+      {
+        "Name": "nazrg",
+        "Value": "New-AzureResourceGroup"
+      },
+      {
+        "Name": "",
+        "Value": ""
+      },
+      {
+        "Name": "",
+        "Value": ""
+      },
+      {
+        "Name": "",
+        "Value": ""
+      }
+    ]
+}

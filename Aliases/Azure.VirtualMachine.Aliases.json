@@ -1,0 +1,20 @@
+{
+    "aliases": [
+      {
+        "Name": "nazvm",
+        "Value": "New-AzureRMVM"
+      },
+      {
+        "Name": "razvm",
+        "Value": "Remove-AzureRMVM"
+      },
+      {
+        "Name": "spazvm",
+        "Value": "Stop-AzureVM"
+      },
+      {
+        "Name": "saazvm",
+        "Value":  "Start-AzureRMVM"
+      }
+    ]
+}
