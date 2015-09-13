@@ -15,7 +15,7 @@ function Patch-ModuleManifest {
 	)
 
 	if (!$Path) {
-		$Path = Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER -Include *.psd1;
+		$Path = Get-ChildItem -Path $env:APPVEYOR_BUILD_FOLDER\* -Include *.psd1;
 		if (!$Path) { throw 'Could not find a module manifest file'; }
 	}
 
