@@ -9,16 +9,16 @@
         "Value": "Remove-AzureStorageAccount"
       },
       {
-        "Name": "",
-        "Value": ""
+        "Name": "sazsa",
+        "Value": "Set-AzureStorageAccount"
       },
       {
-        "Name": "",
-        "Value": ""
+        "Name": "nazscon",
+        "Value": "New-AzureStorageContainer"
       },
       {
-        "Name": "",
-        "Value": ""
+        "Name": "razscon",
+        "Value": "Remove-AzureStorageContainer"
       }
     ]
 }

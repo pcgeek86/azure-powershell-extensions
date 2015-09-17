@@ -7,18 +7,6 @@
       {
         "Name": "nazrg",
         "Value": "New-AzureResourceGroup"
-      },
-      {
-        "Name": "",
-        "Value": ""
-      },
-      {
-        "Name": "",
-        "Value": ""
-      },
-      {
-        "Name": "",
-        "Value": ""
       }
     ]
 }

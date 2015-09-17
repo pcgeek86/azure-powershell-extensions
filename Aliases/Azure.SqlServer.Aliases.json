@@ -1,34 +1,9 @@
 {
     "aliases": [
       {
-          "Description":  "",
-          "Name":  "",
-          "Value":  ""
-      },
-      {
-          "Description":  "",
-          "Name":  "",
-          "Value":  ""
-      },
-      {
-          "Description":  "",
-          "Name":  "",
-          "":  ""
-      },
-      {
-          "":  "",
-          "":  "",
-          "Value":  ""
-      },
-      {
-          "Description":  "",
-          "Name":  "",
-          "Value":  ""
-      },
-      {
-          "Description":  "",
-          "Name":  "",
-          "Value":  ""
+          "Description":  "Creates a new Azure SQL Server.",
+          "Name":  "nazsqlsrv",
+          "Value":  "New-AzureSqlServer"
       }
     ]
 }

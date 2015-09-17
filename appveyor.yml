@@ -16,7 +16,7 @@ environment:
     secure: w6SGv8TcA94VIlLDtj1WGYHpUX3hU3yv8J14VoW2ds+PehjpNgCTheE2HuGhCkTb
 
 deploy_script:
-  - ps: . "$env:APPVEYOR_BUILD_FOLDER\Patch-ModuleManifest.ps1";
+  - ps: . "$env:APPVEYOR_BUILD_FOLDER\Build\Patch-ModuleManifest.ps1";
   - ps: Patch-ModuleManifest -BuildNumber $env:APPVEYOR_BUILD_NUMBER;
   - ps: try { Find-Package -Name zzzzzzzzzzzzz -Force -ForceBootstrap -ErrorAction Stop; } catch { Write-Warning -Message 'Finished bootstrap.'; };
   - ps: Publish-Module -NuGetApiKey $env:PSGalleryApiKey -Path $env:APPVEYOR_BUILD_FOLDER -Confirm:$false;

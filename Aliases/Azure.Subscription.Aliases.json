@@ -1,27 +1,19 @@
 {
     "aliases": [
       {
+        "Description": "Retrieves a list of Azure subscriptions.",
         "Name": "gazsub",
-        "Value": "Get-AzureSubscription",
-        "Description": ""
+        "Value": "Get-AzureSubscription"
       },
       {
+        "Description": "Makes an Azure subscription the \"current\" subscription.",
         "Name": "selazsub",
-        "Value": "Select-AzureSubscription",
-        "Description": "Removes an Azure Profile object."
+        "Value": "Select-AzureSubscription"
       },
       {
-        "Description": "Makes an Azure Profile the \"current\" profile.",
-        "Name": "selazpr",
-        "Value": "Select-AzureRMProfile"
-      },
-      {
-        "Name": "clazpr",
-        "Value":  "Clear-AzureRMProfile"
-      },
-      {
-        "Name": "svazpr",
-        "Value":  "Save-AzureRMProfile"
+        "Description": "Update an Azure subscription.",
+        "Name": "sazsub",
+        "Value": "Set-AzureSubscription"
       }
     ]
 }

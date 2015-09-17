@@ -49,7 +49,7 @@
     <Compile Include="Completers\Microsoft.Azure.ArgumentCompleters.ps1" />
     <Compile Include="Functions\Public\Publish-AzureStorageBlob.ps1" />
     <Compile Include="Functions\Public\Unpublish-AzureStorageBlob.ps1" />
-    <Compile Include="Patch-ModuleManifest.ps1" />
+    <Compile Include="Build\Patch-ModuleManifest.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Build\" />
