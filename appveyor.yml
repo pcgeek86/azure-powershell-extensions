@@ -17,7 +17,7 @@ environment:
 
 deploy_script:
   - ps: . "$env:APPVEYOR_BUILD_FOLDER\Build\Patch-ModuleManifest.ps1";
-  - ps: Patch-ModuleManifest -BuildNumber $env:APPVEYOR_BUILD_NUMBER -Path $PSScriptRoot\..\;
+  - ps: Patch-ModuleManifest -BuildNumber $env:APPVEYOR_BUILD_NUMBER;
   - ps: try { Find-Package -Name zzzzzzzzzzzzz -Force -ForceBootstrap -ErrorAction Stop; } catch { Write-Warning -Message 'Finished bootstrap.'; };
   - ps: Publish-Module -NuGetApiKey $env:PSGalleryApiKey -Path $env:APPVEYOR_BUILD_FOLDER -Confirm:$false;
 
