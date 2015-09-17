@@ -102,7 +102,14 @@ function Invoke-AzureRemoteDesktop {
                 );
             $Operation = $OperationList | Out-GridView -OutputMode Single;
             if ($Operation.Name -eq 'Start') {
-                Start-AzureVM -ServiceName $VM.ServiceName -Name $VM.Name;
+                ### Start the VM using Azure Resource Manager (ARM) instead of Service Management,
+                ### if the VM is an IaaSv2 VM.
+                if ($VM.ResourceGroupName -and $VM.Name) {
+                    Start-AzureVM -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name; } 
+                elseif ($VM.ServiceName -and $VM.Name) {
+                    Start-AzureVM -ServiceName $VM.ServiceName -Name $VM.Name; }
+
+
                 if (Wait-AzureVM -ServiceName $VM.ServiceName -Name $VM.Name) {
                     Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.Name -Launch;
                 }

@@ -27,6 +27,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Aliases\Azure.Extensions.Aliases.json" />
+    <Content Include="Aliases\Azure.Subscription.Aliases.json" />
+    <Content Include="Aliases\Azure.SqlServer.Aliases.json" />
     <Content Include="Aliases\Azure.ResourceManager.Aliases.json" />
     <Content Include="Aliases\Azure.AppService.Aliases.json" />
     <Content Include="Aliases\Azure.Storage.Aliases.json" />

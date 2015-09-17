@@ -1,0 +1,27 @@
+{
+    "aliases": [
+      {
+        "Name": "gazsub",
+        "Value": "Get-AzureSubscription",
+        "Description": ""
+      },
+      {
+        "Name": "selazsub",
+        "Value": "Select-AzureSubscription",
+        "Description": "Removes an Azure Profile object."
+      },
+      {
+        "Description": "Makes an Azure Profile the \"current\" profile.",
+        "Name": "selazpr",
+        "Value": "Select-AzureRMProfile"
+      },
+      {
+        "Name": "clazpr",
+        "Value":  "Clear-AzureRMProfile"
+      },
+      {
+        "Name": "svazpr",
+        "Value":  "Save-AzureRMProfile"
+      }
+    ]
+}
