@@ -1,20 +1,24 @@
 {
     "aliases": [
       {
+        "Description": "Creates a new Azure Resource Manager Virtual Machine.",
         "Name": "nazvm",
         "Value": "New-AzureRMVM"
       },
       {
+        "Description": "Removes an Azure Resource Manager Virtual Machine, but leaves the VHD blobs intact.",
         "Name": "razvm",
         "Value": "Remove-AzureRMVM"
       },
       {
+        "Description": "Stops an Azure Resource Manager Virtual Machine.",
         "Name": "spazvm",
-        "Value": "Stop-AzureVM"
+        "Value": "Stop-AzureRMVM"
       },
       {
+        "Description": "Starts an Azure Resource Manager Virtual Machine.",
         "Name": "saazvm",
-        "Value":  "Start-AzureRMVM"
+        "Value": "Start-AzureRMVM"
       }
     ]
 }

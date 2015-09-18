@@ -35,6 +35,7 @@
     <Content Include="Aliases\Azure.Storage.Aliases.json" />
     <Content Include="Aliases\Azure.VirtualMachine.Aliases.json" />
     <Content Include="appveyor.yml" />
+    <Content Include="Completers\README.MD" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="README.md" />
   </ItemGroup>
@@ -49,7 +50,7 @@
     <Compile Include="Completers\Microsoft.Azure.ArgumentCompleters.ps1" />
     <Compile Include="Functions\Public\Publish-AzureStorageBlob.ps1" />
     <Compile Include="Functions\Public\Unpublish-AzureStorageBlob.ps1" />
-    <Compile Include="Build\Patch-ModuleManifest.ps1" />
+    <Compile Include="Patch-ModuleManifest.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Build\" />
