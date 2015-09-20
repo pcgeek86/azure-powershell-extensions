@@ -42,7 +42,7 @@ foreach ($Function in $FunctionList) {
 #endregion Functions
 
 #region Import Argument Completers
-$CompleterScriptList = Get-ChildItem -Path $PSScriptRoot\Completers;
+$CompleterScriptList = Get-ChildItem -Path $PSScriptRoot\Completers\*.ps1;
 
 foreach ($CompleterScript in $CompleterScriptList) {
     Write-Verbose -Message ('Import argument completer script: {0}' -f $CompleterScript.FullName);
