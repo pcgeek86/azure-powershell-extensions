@@ -1,3 +1,5 @@
+<img src="https://ci.appveyor.com/api/projects/status/rj6yk9p8d0bwonpn?svg=true" />
+
 # Introduction
 
 This PowerShell script module project is intended to offer extensions to the Microsoft Azure PowerShell module, to simply interactive use, and fill in functional & documentation gaps. The specific areas that it will help fill are:
