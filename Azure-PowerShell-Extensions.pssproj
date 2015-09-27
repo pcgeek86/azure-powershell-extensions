@@ -37,12 +37,13 @@
     <Content Include="appveyor.yml" />
     <Content Include="Completers\README.MD" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
+    <Content Include="en-us\README.md" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
-    <Compile Include="AzureExt.tests.ps1" />
+    <Compile Include="Tests\AzureExt.tests.ps1" />
     <Compile Include="Aliases\Azure.Profile.Aliases.json" />
     <Compile Include="Format Types\Azure.ResourceGroup.format.ps1xml" />
     <Compile Include="Functions\Private\Get-AllAzureLocations.ps1" />
@@ -61,6 +62,7 @@
     <Folder Include="Completers\" />
     <Folder Include="Aliases\" />
     <Folder Include="Format Types\" />
+    <Folder Include="Tests\" />
     <Folder Include="Type Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
