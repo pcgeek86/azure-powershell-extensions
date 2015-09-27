@@ -1,12 +1,19 @@
 {
     "aliases": [
       {
+        "Description": "Retrieves an Azure Resource Manager Resource Group.",
         "Name": "gazrg",
-        "Value": "Get-AzureResourceGroup"
+        "Value": "Get-AzureRMResourceGroup"
       },
       {
+        "Description": "Creates an Azure Resource Manager Resource Group.",
         "Name": "nazrg",
-        "Value": "New-AzureResourceGroup"
+        "Value": "New-AzureRMResourceGroup"
+      },
+      {
+        "Description": "Removes an Azure Resource Manager Resource Group.",
+        "Name": "razrg",
+        "Value": "Remove-AzureRMResourceGroup"
       }
     ]
 }

@@ -2,23 +2,23 @@
     "aliases": [
       {
         "Name": "nazsa",
-        "Value": "New-AzureStorageAccount"
+        "Value": "New-AzureRMStorageAccount"
       },
       {
         "Name": "razsa",
-        "Value": "Remove-AzureStorageAccount"
+        "Value": "Remove-AzureRMStorageAccount"
       },
       {
         "Name": "sazsa",
-        "Value": "Set-AzureStorageAccount"
+        "Value": "Set-AzureRMStorageAccount"
       },
       {
         "Name": "nazscon",
-        "Value": "New-AzureStorageContainer"
+        "Value": "New-AzureRMStorageContainer"
       },
       {
         "Name": "razscon",
-        "Value": "Remove-AzureStorageContainer"
-      }
+        "Value": "Remove-AzureRMStorageContainer"
+      }z
     ]
 }

@@ -3,7 +3,12 @@
       {
           "Description":  "Creates a new Azure SQL Server.",
           "Name":  "nazsqlsrv",
-          "Value":  "New-AzureSqlServer"
+          "Value":  "New-AzureRMSqlServer"
+      },
+      {
+          "Description":  "Creates a new Azure SQL Server.",
+          "Name":  "razsqlsrv",
+          "Value":  "Remove-AzureRMSqlServer"
       }
     ]
 }

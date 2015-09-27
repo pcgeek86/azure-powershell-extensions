@@ -8,12 +8,12 @@
       {
           "Description":  "Publish a local file to an Azure Storage Blob Container.",
           "Name":  "pubazblob",
-          "Value":  "Publish-AzureStorageBlob"
+          "Value":  "Publish-AzureRMStorageBlob"
       },
       {
         "Description": "Remove one or more Azure Storage Blobs from a Container.",
         "Name": "unpubazblob",
-        "Value": "Unpublish-AzureStorageBlob"
+        "Value": "Unpublish-AzureRMStorageBlob"
       }
     ]
 }

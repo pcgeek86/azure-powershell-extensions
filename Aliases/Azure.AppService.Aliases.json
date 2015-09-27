@@ -3,32 +3,32 @@
       {
           "Description":  "Creates a new Azure Web App.",
           "Name":  "nazwa",
-          "Value":  "New-AzureWebApp"
+          "Value":  "New-AzureRMWebApp"
       },
       {
           "Description":  "Removes an Azure Web App.",
           "Name":  "razwa",
-          "Value":  "Remove-AzureWebApp"
+          "Value":  "Remove-AzureRMWebApp"
       },
       {
           "Description":  "Starts an Azure Web App.",
           "Name":  "saazwa",
-          "Value":  "Start-AzureWebApp"
+          "Value":  "Start-AzureRMWebApp"
       },
       {
           "Description":  "Stops an Azure Web App.",
           "Name":  "spazwa",
-          "Value":  "Stop-AzureWebApp"
+          "Value":  "Stop-AzureRMWebApp"
       },
       {
           "Description":  "Retrieves an Azure Web App.",
           "Name":  "gazwa",
-          "Value":  "Get-AzureWebApp"
+          "Value":  "Get-AzureRMWebApp"
       },
       {
           "Description":  "Retrieves the publishing profile for an Azure Web App.",
           "Name":  "gazwapub",
-          "Value":  "Get-AzureWebAppPublishingProfile"
+          "Value":  "Get-AzureRMWebAppPublishingProfile"
       }
     ]
 }

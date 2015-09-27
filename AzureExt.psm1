@@ -51,10 +51,9 @@ foreach ($CompleterScript in $CompleterScriptList) {
 #endregion
 
 #region Format Data
-
-$FormatFileList = Get-ChildItem -Path "$PSScriptRoot\Format Types" -Filter *format.ps1xml;
+$FormatFileList = Get-ChildItem -Path "$PSScriptRoot\Format Types\*" -Filter *format.ps1xml;
 foreach ($FormatFile in $FormatFileList) {
     Update-FormatData -PrependPath $FormatFile.FullName;
+    Write-Verbose -Message ('Added format file: {0}' -f $FormatFile.Name);
 }
-
 #endregion
