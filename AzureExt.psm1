@@ -48,6 +48,7 @@ foreach ($CompleterScript in $CompleterScriptList) {
     Write-Verbose -Message ('Import argument completer script: {0}' -f $CompleterScript.FullName);
     & $CompleterScript.FullName;
 }
+Write-Verbose -Message 'Finished importing argument completer scripts.';
 #endregion
 
 #region Format Data

@@ -1,9 +1,14 @@
 {
     "aliases": [
       {
-        "Description": "Invokes a Remote Desktop Connection to an Azure Virtual Machine.",
+        "Description": "Invokes a Remote Desktop Connection to an Azure Virtual Machine (Service Management).",
         "Name": "azrdp",
         "Value": "Invoke-AzureRemoteDesktop"
+      },
+      {
+        "Description": "Invokes a Remote Desktop Connection to an Azure Virtual Machine (Resource Manager).",
+        "Name": "azrmrdp",
+        "Value": "Invoke-AzureRmRemoteDesktop"
       },
       {
           "Description":  "Publish a local file to an Azure Storage Blob Container.",

@@ -26,15 +26,50 @@ The following PowerShell aliases apply to Azure authentication and subscription 
 
 ### Virtual Machines
 
+The following PowerShell aliases apply to Virtual Machine commands.
+
 - **nazvmc** - New-AzureVMConfig
 
 
 ### Azure Storage
 
 - **nazsa** - New-AzureStorageAccount
-
+- **razsa** - Remove-AzureStorageAccount
 
 ## Auto-Completion
+
+Auto-completers are PowerShell ScriptBlocks that provide Intellisense & tab-completion for PowerShell command parameter values. 
+These functions require the presence of the TabExpansion++ PowerShell module, which is available from its [GitHub project page](https://github.com/lzybkr/TabExpansionPlusPlus/tree/DropScanningRegistration).
+Make sure that you download the **DropScanningRegistration** branch, as it has updated code that has not yet been merged into the **master** branch.
+
+**NOTE**: This module **must** be imported in order for the Intellisense extensions to be registered.
+To simplify this process, each time you launch a new PowerShell session, you can add a line to your PowerShell profile to import the module:
+
+```
+Import-Module -Name AzureExt;
+```
+
+**IMPORTANT**: For most argument completer functions, you must be authenticated to Microsoft Azure.
+Starting with the 1.0 release of the Azure Resource Manager module, token caches are not automatically saved between PowerShell sessions.
+For Azure Service Management commands, use `Add-AzureAccount` to login. 
+For Azure Resource Manager commands, use `Login-AzureRmAccount` to login.
+
+This module includes auto-completion for the following Azure entitites.
+
+### Service Management
+
+- Subscription names
+- Cloud Service names
+- Virtual Machine names
+
+### Resource Manager 
+
+- Azure Locations
+- Resource Group names
+- Virtual Machine names
+- Storage Accounts
+
+## Built-in Help
 
 # Issues
 
