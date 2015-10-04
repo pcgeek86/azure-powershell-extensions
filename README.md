@@ -79,3 +79,21 @@ For issues or enhancement requests related to this project, please report them o
 
 The founder of this project is Trevor Sullivan, a Microsoft MVP for Windows PowerShell, and an independent Cloud & Automation Consultant.
 
+# Contributing
+
+You can participate in the development of the Azure PowerShell Extensions module in a variety of different ways.
+
+## Issues / Enhancements
+
+You can report bugs or feature enhancements on the GitHub Issue Tracker.
+
+## Chat
+
+You can participate in project chat using the Gitter service.
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pcgeek86/azure-powershell-extensions?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+## Pull Requests
+
+If you want to add a feature and submit a Pull Request, feel free to. 
+Simply fork the project into your own repository, commit to a new branch, and then submit a Pull Request targeting the `master` branch of this project.

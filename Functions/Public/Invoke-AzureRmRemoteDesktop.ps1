@@ -33,16 +33,16 @@ function Invoke-AzureRmRemoteDesktop {
     function Wait-AzureVM {
         param (
             [Parameter(Mandatory = $true)]
-            [string] $ServiceName
+            [string] $ResourceGroupName
           , [Parameter(Mandatory = $true)]
             [string] $Name
           , [int] $WaitInSeconds = 10
           , [string] $State = 'ReadyRole'
         )
         
-        while (($VM = Get-AzureRMVM -ServiceName $ServiceName -Name $Name).Status -ne $State) {
+        while (($VM = Get-AzureRMVM -ResourceGroupName $ResourceGroupName -Name $Name).Status -ne $State) {
             Start-Sleep -Seconds $WaitInSeconds;
-            Write-Verbose -Message ('Virtual machine state {0}/{1} is {2}' -f $ServiceName, $Name, $VM.Status);
+            Write-Verbose -Message ('Virtual machine state {0}/{1} is {2}' -f $ResourceGroupName, $Name, $VM.Status);
             $UserResult = $null;
             $UserResult = @('Yes', 'No') | Out-GridView -Title ('Keep waiting for {0} seconds?' -f $WaitInSeconds) -OutputMode Single;
             if (!$UserResult -or $UserResult -eq 'No') {
@@ -70,7 +70,7 @@ function Invoke-AzureRmRemoteDesktop {
     }
 
     $AzureReauthenticate = {
-        $AuthResult = Add-AzureAccount 3>&1;
+        $AuthResult = Login-AzureRmAccount 3>&1;
 
         if ($AuthResult -match 'User canceled authentication') {
             Write-Error -Message 'User canceled authentication, exiting function.';
@@ -106,12 +106,9 @@ function Invoke-AzureRmRemoteDesktop {
                 ### if the VM is an IaaSv2 VM.
                 if ($VM.ResourceGroupName -and $VM.Name) {
                     Start-AzureRmVM -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name; } 
-                elseif ($VM.ServiceName -and $VM.Name) {
-                    Start-AzureRmVM -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name; }
-
 
                 if (Wait-AzureVM -ServiceName $VM.ServiceName -Name $VM.Name) {
-                    Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.Name -Launch;
+                    Get-AzureRmRemoteDesktopFile -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name -Launch;
                 }
                 return;
             }
@@ -126,15 +123,15 @@ function Invoke-AzureRmRemoteDesktop {
         }
 
         Write-Verbose -Message ('Invoking Remote Desktop session to {0}\{1}' -f $VM.ResourceGroupName, $VM.Name);
-        Get-AzureRmRemoteDesktopFile -ResourceGroupNaem $VM.ResourceGroupName -Name $VM.Name -Launch;
-    }
-    catch [System.ArgumentException] {
-        if ($PSItem.Exception.Message -match 'Add-AzureAccount') {
-            & $AzureReauthenticate;
-        }
+        Get-AzureRmRemoteDesktopFile -ResourceGroupName $VM.ResourceGroupName -Name $VM.Name -Launch;
     }
     catch [System.ApplicationException] {
         if ($PSItem.Exception.Message -match 'No default subscription') {
+            & $AzureReauthenticate;
+        }
+    }
+    catch [System.Exception] {
+        if ($PSItem.Exception.Message -match 'Login-AzureRMAccount') {
             & $AzureReauthenticate;
         }
     }
