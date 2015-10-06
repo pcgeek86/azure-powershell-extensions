@@ -10,6 +10,50 @@ The specific areas that it will help fill are:
 - PowerShell about_* Help - Provide built-in PowerShell help that users are accustomed to, instead of browsing the web.
 - Auto-completer Functions - Automatic tab-completion for parameter values, to reduce the need to memorize cloud resource names.
 
+# Installation
+
+The Azure PowerShell Extensions module is being developed and tested against PowerShell 5.0 on Windows 10 Enterprise RTM (Build 10240).
+PowerShell 5.0 introduces the centralized [PowerShell Gallery](http://powershellgallery.com), which is exposed via the built-in `PowerShellGet` module.
+PowerShell 5.0 can be installed on down-level operating systems, including Windows 7, Windows 8.1, Windows Server 2012 and 2012 R2, by way of the *"Windows Management Framework 5.0"* package.
+
+In PowerShell 5.0, using the `Find-Module` command, you can search for the latest version of the `AzureExt` module.
+
+```
+PS C:\Users\TrevorSullivan> Find-Module -Name AzureExt | Format-Table -AutoSize
+
+Version Name     Repository Description
+------- ----     ---------- -----------
+0.1.31  AzureExt PSGallery  This PowerShell module provides extensions on top of the core Microsoft Azure Service Ma...
+```
+
+Using PowerShellGet's `Install-Module` command, you can easily install the `AzureExt` module.
+You can use the `-Scope` parameter to install the module for the currently logged-in user, or for all users of the system.
+To install a PowerShell module for all users, you must be running the PowerShell process as an Administrator of the system.
+
+```
+Install-Module -Name AzureExt -Scope CurrentUser;
+```
+
+For more information about `PowerShellGet` commands, use PowerShell's core `Get-Command` command:
+
+```
+PS C:\Users\TrevorSullivan> Get-Command -Module PowerShellGet | Format-Table -AutoSize;
+
+CommandType Name                    Version Source
+----------- ----                    ------- ------
+Function    Find-Module             1.0     PowerShellGet
+Function    Get-InstalledModule     1.0     PowerShellGet
+Function    Get-PSRepository        1.0     PowerShellGet
+Function    Install-Module          1.0     PowerShellGet
+Function    Publish-Module          1.0     PowerShellGet
+Function    Register-PSRepository   1.0     PowerShellGet
+Function    Save-Module             1.0     PowerShellGet
+Function    Set-PSRepository        1.0     PowerShellGet
+Function    Uninstall-Module        1.0     PowerShellGet
+Function    Unregister-PSRepository 1.0     PowerShellGet
+Function    Update-Module           1.0     PowerShellGet
+```
+
 # Features
 
 ## Aliases
