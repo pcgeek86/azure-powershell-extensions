@@ -12,6 +12,8 @@ The specific areas that it will help fill are:
 
 # Installation
 
+**IMPORTANT**: The `AzureExt` module has a dependency on the `TabExpansion++` PowerShell module, developed by Jason Shirk. Please see the "Argument Completers" heading below for more information.
+
 The Azure PowerShell Extensions module is being developed and tested against PowerShell 5.0 on Windows 10 Enterprise RTM (Build 10240).
 PowerShell 5.0 introduces the centralized [PowerShell Gallery](http://powershellgallery.com), which is exposed via the built-in `PowerShellGet` module.
 PowerShell 5.0 can be installed on down-level operating systems, including Windows 7, Windows 8.1, Windows Server 2012 and 2012 R2, by way of the *"Windows Management Framework 5.0"* package.
