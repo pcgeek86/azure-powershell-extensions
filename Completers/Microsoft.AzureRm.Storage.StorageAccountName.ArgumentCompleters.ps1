@@ -33,28 +33,30 @@ $ArgumentCompleter =     @{
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        #Write-Verbose -Message ('Called AzureRm StorageAccountName completer at {0}' -f (Get-Date))
-
         $CacheKey = 'RmStorageAccount_StorageAccountNameCache';
         $Cache = Get-CompletionPrivateData -Key $CacheKey;
 
         ### Return the cached value if it has not expired
-        if ($Cache) {
-            return $Cache;
-        }
+        if ($Cache) { return $Cache; }
 
-        $StorageAccountList = Get-AzureRmStorageAccount | Where-Object { $PSItem.StorageAccountName -match $wordToComplete } | ForEach-Object -Process {
-            $CompletionResult = @{
-                CompletionText = $PSItem.StorageAccountName;
-                ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location;
-                ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location;
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                }
-            New-CompletionResult @CompletionResult;
-        }
+        try {
+            $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+                $CompletionResult = @{
+                    CompletionText = $PSItem.Name;
+                    ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.Name, $PSItem.Location;
+                    ListItemText = '{0} ({1})' -f $PSItem.Name, $PSItem.Location;
+                    CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+                    NoQuotes = $true;
+                    }
+                New-CompletionResult @CompletionResult;
+            }
 
-        Set-CompletionPrivateData -Key $CacheKey -Value $StorageAccountList;
-        return $StorageAccountList;
+            Set-CompletionPrivateData -Key $CacheKey -Value $StorageAccountList;
+            return $StorageAccountList;
+        }
+        catch {
+            Write-Host -Message ('Error occurred calling argument completer: {0}' -f $PSItem.Exception.Message);
+        }
         }
     }
 

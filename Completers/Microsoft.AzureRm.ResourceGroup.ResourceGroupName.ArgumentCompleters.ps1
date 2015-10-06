@@ -371,7 +371,12 @@ $ArgumentCompleter = @{
             return $Cache;
         }
 
-        $ItemList = Get-AzureRmResourceGroup | Where-Object { $PSItem.ResourceGroupName -match $wordToComplete } | ForEach-Object {
+        try {
+            $ResourceGroupList = Get-AzureRmResourceGroup -ErrorAction Stop;
+        } catch {
+            Write-Host -Object ('Error occurred retrieving resource groups: {0}' -f $PSItem.Exception.Message);
+        }
+        $ItemList = $ResourceGroupList | Where-Object { $PSItem.ResourceGroupName -match $wordToComplete } | ForEach-Object {
             $CompletionResult = @{
                 CompletionText = $PSItem.ResourceGroupName;
                 ToolTip = 'Resource Group {0} in {1} region.' -f $PSItem.ResourceGroupName, $PSItem.Location;

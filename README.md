@@ -2,7 +2,8 @@
 
 # Introduction
 
-This PowerShell script module project is intended to offer extensions to the Microsoft Azure PowerShell module, to simply interactive use, and fill in functional & documentation gaps. The specific areas that it will help fill are:
+This PowerShell script module project is intended to offer extensions to the Microsoft Azure PowerShell module, to simplify interactive use, and fill in functional & documentation gaps. 
+The specific areas that it will help fill are:
 
 - PowerShell Proxy functions - Simplify cmdlet calls that are unnecessarily complicated by default.
 - PowerShell Aliases - Reduce the amount of typing necessary to run Azure PowerShell commands interactively.

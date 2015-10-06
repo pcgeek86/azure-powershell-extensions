@@ -2,6 +2,7 @@
     .Synopsis
     Helper script for testing Microsoft Azure argument-completer functions for TabExpansion++.
 #>
+$VerbosePreference = 'continue';
 $AzureUsername = 'trevor@trevorsullivan.net';
 $AzureCredential = Get-Credential -UserName $AzureUsername -Message 'Please enter your Microsoft Azure password.';
 $AzureProfile = Login-AzureRMAccount -Credential $AzureCredential;
