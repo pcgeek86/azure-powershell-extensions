@@ -56,6 +56,12 @@ Function    Unregister-PSRepository 1.0     PowerShellGet
 Function    Update-Module           1.0     PowerShellGet
 ```
 
+# Usage
+
+Once the module has been installed, simply call `Import-Module -Name AzureExt;` in order to begin using its features.
+PowerShell 3.0 and later support a concept called "module auto-loading," which enables certain features (eg. explicitly exported aliases and functions) to be accessed without explicitly importing the module.
+However, we recommend importing the module, to ensure that all features (including auto-completers) are accessible.
+
 # Features
 
 ## Aliases
