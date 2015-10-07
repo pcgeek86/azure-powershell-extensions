@@ -36,6 +36,12 @@ To install a PowerShell module for all users, you must be running the PowerShell
 Install-Module -Name AzureExt -Scope CurrentUser;
 ```
 
+When a new version of the module has been released, make sure to update it.
+
+```
+Update-Module -Name AzureExt;
+```
+
 For more information about `PowerShellGet` commands, use PowerShell's core `Get-Command` command:
 
 ```
