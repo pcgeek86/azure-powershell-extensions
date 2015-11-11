@@ -44,6 +44,7 @@
     <Compile Include="Aliases\README.MD" />
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
+    <Compile Include="Completers\Microsoft.AzureRm.Resource.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Storage.StorageAccountName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.ResourceGroup.ResourceGroupName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.Azure.CloudService.ServiceName.ArgumentCompleters.ps1" />

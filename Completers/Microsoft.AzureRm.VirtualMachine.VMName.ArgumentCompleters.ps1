@@ -10,7 +10,7 @@ $ScriptBlock = {
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        $CacheKey = 'RmStorageAccount_StorageAccountNameCache';
+        $CacheKey = 'RmVirtualMachine_VMNameCache';
         $Cache = Get-CompletionPrivateData -Key $CacheKey;
 
         ### Return the cached value if it has not expired

@@ -82,7 +82,7 @@ $ArgumentCompleter = @{
             [CmdletBinding()]
             param ()
 
-            $LocationList = (AzureResourceManager\Get-AzureRmLocation).Locations | Select-Object -Unique | Sort-Object;
+            $LocationList = (Get-AzureRmResourceProvider).Locations | Select-Object -Unique | Sort-Object;
             Write-Output -InputObject $LocationList;
         }
 
