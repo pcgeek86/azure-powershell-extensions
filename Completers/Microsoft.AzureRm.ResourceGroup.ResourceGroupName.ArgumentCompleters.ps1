@@ -1,3 +1,40 @@
+$ScriptBlock = {
+        <#
+        .SYNOPSIS
+        Auto-complete the -ResourceGroupName parameter value for Azure Resource Manager (ARM) PowerShell cmdlets.
+
+        .NOTES
+        Created by Trevor Sullivan <trevor@trevorsullivan.net>
+        http://trevorsullivan.net
+        #>
+        param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+        $CacheKey = 'ResourceGroup_ResourceGroupNameCache';
+        $Cache = Get-CompletionPrivateData -Key $CacheKey;
+        if ($Cache) {
+            return $Cache;
+        }
+
+        try {
+            $ResourceGroupList = Get-AzureRmResourceGroup -ErrorAction Stop;
+        } catch {
+            Write-Host -Object ('Error occurred retrieving resource groups: {0}' -f $PSItem.Exception.Message);
+        }
+        $ItemList = $ResourceGroupList | Where-Object { $PSItem.ResourceGroupName -match $wordToComplete } | ForEach-Object {
+            $CompletionResult = @{
+                CompletionText = $PSItem.ResourceGroupName;
+                ToolTip = 'Resource Group {0} in {1} region.' -f $PSItem.ResourceGroupName, $PSItem.Location;
+                ListItemText = '{0} ({1})' -f $PSItem.ResourceGroupName, $PSItem.Location;
+                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+                NoQuotes = $true;
+                }
+            New-CompletionResult @CompletionResult;
+        }
+        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList;
+
+        return $ItemList
+    }
+
 $ArgumentCompleter = @{
         Command = @(
             'Get-AzureRMSqlDatabaseServerAuditingPolicy'
@@ -99,8 +136,6 @@ $ArgumentCompleter = @{
             'Get-AzureRMSqlServerServiceObjective'
             'Get-AzureRMSqlServerUpgrade'
             'Get-AzureRMSqlServerUpgradeHint'
-            'Get-AzureRMStorageAccount'
-            'Get-AzureRMStorageAccountKey'
             'Get-AzureRMStreamAnalyticsInput'
             'Get-AzureRMStreamAnalyticsJob'
             'Get-AzureRMStreamAnalyticsOutput'
@@ -179,8 +214,6 @@ $ArgumentCompleter = @{
             'New-AzureRMSqlElasticPool'
             'New-AzureRMSqlServer'
             'New-AzureRMSqlServerFirewallRule'
-            'New-AzureRMStorageAccount'
-            'New-AzureRMStorageAccountKey'
             'New-AzureRMStreamAnalyticsInput'
             'New-AzureRMStreamAnalyticsJob'
             'New-AzureRMStreamAnalyticsOutput'
@@ -354,42 +387,22 @@ $ArgumentCompleter = @{
         );
         Parameter = 'ResourceGroupName';
         Description = 'Complete the -ResourceGroupName parameter value for Azure Resource Manager cmdlets: New-AzureVM -ResourceGroupName <TAB>';
-        ScriptBlock = {
-        <#
-        .SYNOPSIS
-        Auto-complete the -ResourceGroupName parameter value for Azure Resource Manager (ARM) PowerShell cmdlets.
+        ScriptBlock = $ScriptBlock;
+}
 
-        .NOTES
-        Created by Trevor Sullivan <trevor@trevorsullivan.net>
-        http://trevorsullivan.net
-        #>
-        param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
 
-        $CacheKey = 'ResourceGroup_ResourceGroupNameCache';
-        $Cache = Get-CompletionPrivateData -Key $CacheKey;
-        if ($Cache) {
-            return $Cache;
-        }
-
-        try {
-            $ResourceGroupList = Get-AzureRmResourceGroup -ErrorAction Stop;
-        } catch {
-            Write-Host -Object ('Error occurred retrieving resource groups: {0}' -f $PSItem.Exception.Message);
-        }
-        $ItemList = $ResourceGroupList | Where-Object { $PSItem.ResourceGroupName -match $wordToComplete } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.ResourceGroupName;
-                ToolTip = 'Resource Group {0} in {1} region.' -f $PSItem.ResourceGroupName, $PSItem.Location;
-                ListItemText = '{0} ({1})' -f $PSItem.ResourceGroupName, $PSItem.Location;
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                NoQuotes = $true;
-                }
-            New-CompletionResult @CompletionResult;
-        }
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList;
-
-        return $ItemList
-    }
+$ArgumentCompleter = @{
+        Command = @(
+            'Find-AzureRmResourceGroup'
+            'Get-AzureRmResourceGroup'
+            'New-AzureRmResourceGroup'
+            'Remove-AzureRmResourceGroup'
+            'Set-AzureRmResourceGroup'
+        );
+        Parameter = 'Name';
+        Description = 'Complete the -Name parameter value for the core Azure Resource Manager (ARM) Resource Group cmdlets: Get-AzureRmResourceGroup -Name <TAB>';
+        ScriptBlock = $ScriptBlock;
 }
 
 TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
