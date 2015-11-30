@@ -17,7 +17,7 @@ $ScriptBlock = {
         if ($Cache) { return $Cache; }
 
         try {
-            $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+            $StorageAccountList = Get-AzureRmVm | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
                 $CompletionResult = @{
                     CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
                     ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.Name, $PSItem.Location;
@@ -39,36 +39,67 @@ $ScriptBlock = {
 $ArgumentCompleterList = @(
     @{
     Command = @(
-        'Add-AzureRMHDInsightStorage'
-        'New-AzureRMResourceGroup'
-        'New-AzureRMResourceGroupDeployment'
-        'New-AzureRMStorageContext'
-        'Publish-AzureRMVMDscConfiguration'
-        'Remove-AzureRMStorageAccount'
-        'Restore-AzureRMBackupItem'
-        'Set-AzureRMHDInsightDefaultStorage'
-        'Set-AzureRMSqlDatabaseAuditingPolicy'
-        'Set-AzureRMSqlServerAuditingPolicy'
-        'Set-AzureRMVMCustomScriptExtension'
-        'Set-AzureRMVMDscExtension'
-        'Test-AzureRMResourceGroupTemplate'
+        'Add-AzureRmVMAdditionalUnattendContent'
+        'Add-AzureRmVMDataDisk'
+        'Add-AzureRmVMNetworkInterface'
+        'Add-AzureRmVMSecret'
+        'Add-AzureRmVMSshPublicKey'
+        'Get-AzureRmVM'
+        'Get-AzureRmVMAccessExtension'
+        'Get-AzureRmVMBootDiagnosticsData'
+        'Get-AzureRmVMCustomScriptExtension'
+        'Get-AzureRmVMDiagnosticsExtension'
+        'Get-AzureRmVMDiskEncryptionStatus'
+        'Get-AzureRmVMDscExtension'
+        'Get-AzureRmVMDscExtensionStatus'
+        'Get-AzureRmVMExtension'
+        'Get-AzureRmVmExtensionImage'
+        'Get-AzureRmVMExtensionImageType'
+        'Get-AzureRmVMImage'
+        'Get-AzureRmVMImageOffer'
+        'Get-AzureRmVMImagePublisher'
+        'Get-AzureRmVMImageSku'
+        'Get-AzureRmVMSize'
+        'Get-AzureRmVMSqlServerExtension'
+        'Get-AzureRmVMUsage'
+        'New-AzureRmVM'
+        'New-AzureRmVMConfig'
+        'Publish-AzureRmVMDscConfiguration'
+        'Remove-AzureRmVM'
+        'Remove-AzureRmVMAccessExtension'
+        'Remove-AzureRmVMBackup'
+        'Remove-AzureRmVMCustomScriptExtension'
+        'Remove-AzureRmVMDataDisk'
+        'Remove-AzureRmVMDiagnosticsExtension'
+        'Remove-AzureRmVMDiskEncryptionExtension'
+        'Remove-AzureRmVMDscExtension'
+        'Remove-AzureRmVMExtension'
+        'Remove-AzureRmVMNetworkInterface'
+        'Remove-AzureRmVMSqlServerExtension'
+        'Restart-AzureRmVM'
+        'Save-AzureRmVMImage'
+        'Set-AzureRmVM'
+        'Set-AzureRmVMAccessExtension'
+        'Set-AzureRmVMBackupExtension'
+        'Set-AzureRmVMBootDiagnostics'
+        'Set-AzureRmVMCustomScriptExtension'
+        'Set-AzureRmVMDataDisk'
+        'Set-AzureRmVMDiagnosticsExtension'
+        'Set-AzureRmVMDiskEncryptionExtension'
+        'Set-AzureRmVMDscExtension'
+        'Set-AzureRmVMExtension'
+        'Set-AzureRmVMOperatingSystem'
+        'Set-AzureRmVMOSDisk'
+        'Set-AzureRmVMSourceImage'
+        'Set-AzureRmVMSqlServerExtension'
+        'Start-AzureRmVM'
+        'Stop-AzureRmVM'
+        'Update-AzureRmVM'
     );
-    Parameter = 'StorageAccountName';
-    Description = 'Complete the -StorageAccountName parameter value for Azure Resource Manager (ARM) cmdlets: Get-AzureRmStorageAccountKey -StorageAccountName <TAB>';
+    Parameter = 'Name';
+    Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Machine cmdlets: Get-AzureRmVm -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
-    @{
-        Command = @(
-            'Get-AzureRMStorageAccountKey'
-            'New-AzureRMStorageAccountKey'
-            'Get-AzureRMStorageAccount'
-            'New-AzureRMStorageAccount'
-            'Set-AzureRMStorageAccount'
-        );
-        Parameter = 'Name';
-        Description = '';
-        ScriptBlock = $ScriptBlock;
-    }
 )
 
 foreach ($ArgumentCompleter in $ArgumentCompleterList) {
