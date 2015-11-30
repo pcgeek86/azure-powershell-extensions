@@ -43,7 +43,7 @@ $ArgumentCompleter = @{
                 ToolTip = 'Resource {0} of type {1} in Resource Group {2}' -f $PSItem.ResourceName, $PSItem.ResourceType, $PSItem.ResourceGroupName;
                 ListItemText = '{0} ({1})' -f $PSItem.ResourceName, $PSItem.ResourceGroupName;
                 CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                NoQuotes = $false;
+                NoQuotes = $true;
                 }
             New-CompletionResult @CompletionResult;
         }
