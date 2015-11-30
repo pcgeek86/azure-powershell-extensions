@@ -2,33 +2,33 @@
     "aliases": [
       {
           "Description":  "Creates a new Azure Web App.",
-          "Name":  "nazwa",
-          "Value":  "New-AzureRMWebApp"
+          "Name":  "nazrmwa",
+          "Value":  "New-AzureRmWebApp"
       },
       {
           "Description":  "Removes an Azure Web App.",
-          "Name":  "razwa",
-          "Value":  "Remove-AzureRMWebApp"
+          "Name":  "razrmwa",
+          "Value":  "Remove-AzureRmWebApp"
       },
       {
           "Description":  "Starts an Azure Web App.",
-          "Name":  "saazwa",
-          "Value":  "Start-AzureRMWebApp"
+          "Name":  "saazrmwa",
+          "Value":  "Start-AzureRmWebApp"
       },
       {
           "Description":  "Stops an Azure Web App.",
-          "Name":  "spazwa",
-          "Value":  "Stop-AzureRMWebApp"
+          "Name":  "spazrmwa",
+          "Value":  "Stop-AzureRmWebApp"
       },
       {
           "Description":  "Retrieves an Azure Web App.",
-          "Name":  "gazwa",
-          "Value":  "Get-AzureRMWebApp"
+          "Name":  "gazrmwa",
+          "Value":  "Get-AzureRmWebApp"
       },
       {
           "Description":  "Retrieves the publishing profile for an Azure Web App.",
-          "Name":  "gazwapub",
-          "Value":  "Get-AzureRMWebAppPublishingProfile"
+          "Name":  "gazrmwapub",
+          "Value":  "Get-AzureRmWebAppPublishingProfile"
       }
     ]
 }

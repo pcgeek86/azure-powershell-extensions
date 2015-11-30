@@ -29,11 +29,11 @@
   <ItemGroup>
     <Content Include="Aliases\Azure.Extensions.Aliases.json" />
     <Content Include="Aliases\Azure.Subscription.Aliases.json" />
-    <Content Include="Aliases\Azure.SqlServer.Aliases.json" />
-    <Content Include="Aliases\Azure.ResourceManager.Aliases.json" />
-    <Content Include="Aliases\Azure.AppService.Aliases.json" />
-    <Content Include="Aliases\Azure.Storage.Aliases.json" />
-    <Content Include="Aliases\Azure.VirtualMachine.Aliases.json" />
+    <Content Include="Aliases\AzureRm.SqlServer.Aliases.json" />
+    <Content Include="Aliases\AzureRm.ResourceManager.Aliases.json" />
+    <Content Include="Aliases\AzureRm.AppService.Aliases.json" />
+    <Content Include="Aliases\AzureRm.Storage.Aliases.json" />
+    <Content Include="Aliases\AzureRm.VirtualMachine.Aliases.json" />
     <Content Include="appveyor.yml" />
     <Content Include="Completers\README.MD" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
@@ -44,6 +44,7 @@
     <Compile Include="Aliases\README.MD" />
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
+    <Compile Include="Completers\Microsoft.AzureRm.RedisCache.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Resource.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Storage.StorageAccountName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.ResourceGroup.ResourceGroupName.ArgumentCompleters.ps1" />
@@ -58,7 +59,7 @@
     <Compile Include="Functions\Public\Invoke-AzureRmRemoteDesktop.ps1" />
     <Compile Include="Tests\AzureExt.AutoCompletion.ManualTest.ps1" />
     <Compile Include="Tests\AzureExt.tests.ps1" />
-    <Compile Include="Aliases\Azure.Profile.Aliases.json" />
+    <Compile Include="Aliases\AzureRm.Profile.Aliases.json" />
     <Compile Include="Format Types\Azure.ResourceGroup.format.ps1xml" />
     <Compile Include="Functions\Private\Get-AllAzureLocations.ps1" />
     <Compile Include="Functions\Public\Invoke-AzureRemoteDesktop.ps1" />

@@ -1,0 +1,24 @@
+{
+    "aliases": [
+      {
+        "Name": "nazrmsa",
+        "Value": "New-AzureRmStorageAccount"
+      },
+      {
+        "Name": "razrmsa",
+        "Value": "Remove-AzureRmStorageAccount"
+      },
+      {
+        "Name": "sazrmsa",
+        "Value": "Set-AzureRmStorageAccount"
+      },
+      {
+        "Name": "nazrmscon",
+        "Value": "New-AzureRmStorageContainer"
+      },
+      {
+        "Name": "razrmscon",
+        "Value": "Remove-AzureRmStorageContainer"
+      }
+    ]
+}

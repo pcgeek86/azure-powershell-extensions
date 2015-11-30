@@ -2,13 +2,13 @@
     "aliases": [
       {
           "Description":  "Creates a new Azure SQL Server.",
-          "Name":  "nazsqlsrv",
-          "Value":  "New-AzureRMSqlServer"
+          "Name":  "nazrmsqlsrv",
+          "Value":  "New-AzureRmSqlServer"
       },
       {
           "Description":  "Creates a new Azure SQL Server.",
-          "Name":  "razsqlsrv",
-          "Value":  "Remove-AzureRMSqlServer"
+          "Name":  "razrmsqlsrv",
+          "Value":  "Remove-AzureRmSqlServer"
       }
     ]
 }
