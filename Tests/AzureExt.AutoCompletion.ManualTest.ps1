@@ -11,4 +11,3 @@ Import-Module -Name AzureExt -Force;
 
 ### Now test the argument completer(s). If changes are made simply re-run the script.
 
-#Get-AzureRmRedisCache -Name 
