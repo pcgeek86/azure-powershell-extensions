@@ -52,6 +52,9 @@
     <Compile Include="Completers\Microsoft.Azure.Storage.StorageAccountName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.Azure.VirtualMachine.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Locations.ArgumentCompleters.ps1" />
+    <Compile Include="Completers\Microsoft.AzureRm.VirtualMachine.VMName.ArgumentCompleters.ps1" />
+    <Compile Include="Completers\Microsoft.AzureRm.VirtualNetwork.Name.ArgumentCompleters - Copy.ps1" />
+    <Compile Include="Completers\Microsoft.AzureRm.NetworkInterface.Name.ArgumentCompleters.ps1" />
     <Compile Include="Functions\Public\Invoke-AzureRmRemoteDesktop.ps1" />
     <Compile Include="Tests\AzureExt.AutoCompletion.ManualTest.ps1" />
     <Compile Include="Tests\AzureExt.tests.ps1" />

@@ -14,14 +14,14 @@ $ScriptBlock = {
         $Cache = Get-CompletionPrivateData -Key $CacheKey;
 
         ### Return the cached value if it has not expired
-        if ($Cache) { return $Cache; }
+        #if ($Cache) { return $Cache; }
 
         try {
-            $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+            $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.StorageAccountName -match $wordToComplete } | ForEach-Object {
                 $CompletionResult = @{
-                    CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
-                    ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.Name, $PSItem.Location;
-                    ListItemText = '{0} ({1})' -f $PSItem.Name, $PSItem.Location;
+                    CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.StorageAccountName, $PSItem.ResourceGroupName;
+                    ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location;
+                    ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location;
                     CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
                     NoQuotes = $true;
                     }
@@ -59,11 +59,11 @@ $ArgumentCompleterList = @(
     };
     @{
         Command = @(
-            'Get-AzureRMStorageAccountKey'
-            'New-AzureRMStorageAccountKey'
-            'Get-AzureRMStorageAccount'
-            'New-AzureRMStorageAccount'
-            'Set-AzureRMStorageAccount'
+            'Get-AzureRmStorageAccountKey'
+            'New-AzureRmStorageAccountKey'
+            'Get-AzureRmStorageAccount'
+            'New-AzureRmStorageAccount'
+            'Set-AzureRmStorageAccount'
         );
         Parameter = 'Name';
         Description = '';
