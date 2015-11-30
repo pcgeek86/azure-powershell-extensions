@@ -21,7 +21,7 @@ $ScriptBlock = {
                 $CompletionResult = @{
                     CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
                     ToolTip = 'Virtual Network "{0}" in "{1}" region, member of "{2}" Resource Group.' -f $PSItem.Name, $PSItem.Location, $PSItem.ResourceGroup;
-                    ListItemText = '{0}\{1} ({2})' -f $PSItem.ResourceGroupName, $PSItem.Name, $PSItem.Location;
+                    ListItemText = '{1} ({0}, {2})' -f $PSItem.ResourceGroupName, $PSItem.Name, $PSItem.Location;
                     CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
                     NoQuotes = $true;
                     }
