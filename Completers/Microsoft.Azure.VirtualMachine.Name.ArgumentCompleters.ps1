@@ -1,5 +1,5 @@
 $ArgumentCompleter = @{
-    Command = @('Export-AzureVM', 
+    CommandName = @('Export-AzureVM', 
                 'Get-AzureVM', 
                 'Remove-AzureVM', 
                 'Restart-AzureVM', 
@@ -7,8 +7,8 @@ $ArgumentCompleter = @{
                 'Stop-AzureVM', 
                 'Update-AzureVM',
                 'Get-AzureRemoteDesktopFile');
-    Parameter = 'Name';
-    Description = 'Complete the -Name parameter value for Azure virtual machine cmdlets:  Stop-AzureVM -Name <TAB>';
+    ParameterName = 'Name';
+    #Description = 'Complete the -Name parameter value for Azure virtual machine cmdlets:  Stop-AzureVM -Name <TAB>';
     ScriptBlock = {
         <#
         .SYNOPSIS
@@ -52,4 +52,4 @@ $ArgumentCompleter = @{
     }
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

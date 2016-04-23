@@ -1,5 +1,5 @@
 $ArgumentCompleter = @{
-        Command = @('Add-AzureCertificate', 
+        CommandName = @('Add-AzureCertificate', 
                     'Add-AzureDns', 
                     'Add-AzureInternalLoadBalancer', 
                     'Export-AzureVM', 
@@ -12,8 +12,8 @@ $ArgumentCompleter = @{
                     'Get-AzureService', 
                     'Get-AzureServiceADDomainExtension', 
                     'Get-AzureServiceAntimalwareConfig', 'Get-AzureServiceDiagnosticsExtension', 'Get-AzureServiceExtension', 'Get-AzureServiceRemoteDesktopExtension', 'Get-AzureVM', 'Get-AzureWinRMUri', 'Move-AzureDeployment', 'New-AzureDeployment', 'New-AzureQuickVM', 'New-AzureService', 'New-AzureServiceProject', 'New-AzureVM', 'Publish-AzureServiceProject', 'Remove-AzureCertificate', 'Remove-AzureDeployment', 'Remove-AzureDns', 'Remove-AzureInternalLoadBalancer', 'Remove-AzureService', 'Remove-AzureServiceADDomainExtension', 'Remove-AzureServiceAntimalwareExtension', 'Remove-AzureServiceDiagnosticsExtension', 'Remove-AzureServiceExtension', 'Remove-AzureServiceRemoteDesktopExtension', 'Remove-AzureVM', 'Reset-AzureRoleInstance', 'Restart-AzureVM', 'Save-AzureVMImage', 'Set-AzureDeployment', 'Set-AzureDns', 'Set-AzureInternalLoadBalancer', 'Set-AzureLoadBalancedEndpoint', 'Set-AzureRole', 'Set-AzureService', 'Set-AzureServiceADDomainExtension', 'Set-AzureServiceAntimalwareExtension', 'Set-AzureServiceDiagnosticsExtension', 'Set-AzureServiceExtension', 'Set-AzureServiceRemoteDesktopExtension', 'Set-AzureWalkUpgradeDomain', 'Start-AzureService', 'Start-AzureVM', 'Stop-AzureService', 'Stop-AzureVM', 'Update-AzureVM');
-        Parameter = 'ServiceName';
-        Description = 'Complete the -ServiceName parameter value for Azure cmdlets:  Get-AzureService -ServiceName <TAB>';
+        ParameterName = 'ServiceName';
+        #Description = 'Complete the -ServiceName parameter value for Azure cmdlets:  Get-AzureService -ServiceName <TAB>';
         ScriptBlock = {
         <#
         .SYNOPSIS
@@ -47,4 +47,4 @@ $ArgumentCompleter = @{
     }
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

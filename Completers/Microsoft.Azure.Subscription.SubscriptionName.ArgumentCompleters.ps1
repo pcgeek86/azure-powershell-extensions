@@ -1,5 +1,5 @@
 ﻿$ArgumentCompleter = @{
-        Command = @(
+        CommandName = @(
             'Get-WAPackSubscription', 
             'Remove-WAPackSubscription', 
             'Select-WAPackSubscription', 
@@ -10,8 +10,8 @@
             'Select-AzureSubscription', 
             'Set-AzureSubscription'
             );
-        Parameter = 'SubscriptionName';
-        Description = 'Complete the -SubscriptionName parameter value for Azure cmdlets:  Select-AzureSubscription -SubscriptionName <TAB>';
+        ParameterName = 'SubscriptionName';
+        #Description = 'Complete the -SubscriptionName parameter value for Azure cmdlets:  Select-AzureSubscription -SubscriptionName <TAB>';
         ScriptBlock = {
         <#
             .SYNOPSIS
@@ -53,4 +53,4 @@
     }
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

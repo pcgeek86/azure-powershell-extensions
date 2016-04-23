@@ -1,5 +1,5 @@
 $ArgumentCompleter =     @{
-        Command = @('Enable-WAPackWebsiteApplicationDiagnositc', 
+        CommandName = @('Enable-WAPackWebsiteApplicationDiagnositc', 
                     'Add-AzureHDInsightStorage', 
                     'Enable-AzureWebsiteApplicationDiagnostic', 
                     'Get-AzureStorageAccount', 
@@ -13,8 +13,8 @@ $ArgumentCompleter =     @{
                     'Set-AzureHDInsightDefaultStorage', 
                     'Set-AzureStorageAccount', 
                     'Set-AzureVMCustomScriptExtension' );
-        Parameter = 'StorageAccountName';
-        Description = 'Complete the -StorageAccountName parameter value for Azure cmdlets:  Get-AzureStorageAccount -StorageAccountName <TAB>';
+        ParameterName = 'StorageAccountName';
+        #Description = 'Complete the -StorageAccountName parameter value for Azure cmdlets:  Get-AzureStorageAccount -StorageAccountName <TAB>';
         ScriptBlock =  {
         <#
         .SYNOPSIS
@@ -52,4 +52,4 @@ $ArgumentCompleter =     @{
         }
     }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

@@ -38,39 +38,39 @@ $ScriptBlock = {
 
 $ArgumentCompleterList = @(
     @{
-    Command = @(
-        'Add-AzureRMHDInsightStorage'
-        'New-AzureRMResourceGroup'
-        'New-AzureRMResourceGroupDeployment'
-        'New-AzureRMStorageContext'
-        'Publish-AzureRMVMDscConfiguration'
-        'Remove-AzureRMStorageAccount'
-        'Restore-AzureRMBackupItem'
-        'Set-AzureRMHDInsightDefaultStorage'
-        'Set-AzureRMSqlDatabaseAuditingPolicy'
-        'Set-AzureRMSqlServerAuditingPolicy'
-        'Set-AzureRMVMCustomScriptExtension'
-        'Set-AzureRMVMDscExtension'
-        'Test-AzureRMResourceGroupTemplate'
-    );
-    Parameter = 'StorageAccountName';
-    Description = 'Complete the -StorageAccountName parameter value for Azure Resource Manager (ARM) cmdlets: Get-AzureRmStorageAccountKey -StorageAccountName <TAB>';
-    ScriptBlock = $ScriptBlock;
+        CommandName = @(
+            'Add-AzureRMHDInsightStorage'
+            'New-AzureRMResourceGroup'
+            'New-AzureRMResourceGroupDeployment'
+            'New-AzureRMStorageContext'
+            'Publish-AzureRMVMDscConfiguration'
+            'Remove-AzureRMStorageAccount'
+            'Restore-AzureRMBackupItem'
+            'Set-AzureRMHDInsightDefaultStorage'
+            'Set-AzureRMSqlDatabaseAuditingPolicy'
+            'Set-AzureRMSqlServerAuditingPolicy'
+            'Set-AzureRMVMCustomScriptExtension'
+            'Set-AzureRMVMDscExtension'
+            'Test-AzureRMResourceGroupTemplate'
+        );
+        ParameterName = 'StorageAccountName';
+        #Description = 'Complete the -StorageAccountName parameter value for Azure Resource Manager (ARM) cmdlets: Get-AzureRmStorageAccountKey -StorageAccountName <TAB>';
+        ScriptBlock = $ScriptBlock;
     };
     @{
-        Command = @(
+        CommandName = @(
             'Get-AzureRmStorageAccountKey'
             'New-AzureRmStorageAccountKey'
             'Get-AzureRmStorageAccount'
             'New-AzureRmStorageAccount'
             'Set-AzureRmStorageAccount'
         );
-        Parameter = 'Name';
-        Description = '';
+        ParameterName = 'Name';
+        #Description = '';
         ScriptBlock = $ScriptBlock;
     }
 )
 
 foreach ($ArgumentCompleter in $ArgumentCompleterList) {
-    TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+    Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 }

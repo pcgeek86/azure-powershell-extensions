@@ -36,7 +36,7 @@ $ScriptBlock = {
     }
 
 $ArgumentCompleter = @{
-        Command = @(
+        CommandName = @(
             'Get-AzureRMSqlDatabaseServerAuditingPolicy'
             'Remove-AzureRMSqlDatabaseServerAuditing'
             'Set-AzureRMSqlDatabaseServerAuditingPolicy'
@@ -385,24 +385,24 @@ $ArgumentCompleter = @{
             'Use-AzureRMSqlServerAuditingPolicy'
             'Wait-AzureRMHDInsightJob'
         );
-        Parameter = 'ResourceGroupName';
-        Description = 'Complete the -ResourceGroupName parameter value for Azure Resource Manager cmdlets: New-AzureVM -ResourceGroupName <TAB>';
+        ParameterName = 'ResourceGroupName';
+        #Description = 'Complete the -ResourceGroupName parameter value for Azure Resource Manager cmdlets: New-AzureVM -ResourceGroupName <TAB>';
         ScriptBlock = $ScriptBlock;
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 
 $ArgumentCompleter = @{
-        Command = @(
+        CommandName = @(
             'Find-AzureRmResourceGroup'
             'Get-AzureRmResourceGroup'
             'New-AzureRmResourceGroup'
             'Remove-AzureRmResourceGroup'
             'Set-AzureRmResourceGroup'
         );
-        Parameter = 'Name';
-        Description = 'Complete the -Name parameter value for the core Azure Resource Manager (ARM) Resource Group cmdlets: Get-AzureRmResourceGroup -Name <TAB>';
+        ParameterName = 'Name';
+        #Description = 'Complete the -Name parameter value for the core Azure Resource Manager (ARM) Resource Group cmdlets: Get-AzureRmResourceGroup -Name <TAB>';
         ScriptBlock = $ScriptBlock;
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

@@ -12,7 +12,7 @@ The specific areas that it will help fill are:
 
 # Installation
 
-**IMPORTANT**: The `AzureExt` module has a dependency on the `TabExpansion++` PowerShell module, developed by Jason Shirk. Please see the "Argument Completers" heading below for more information.
+**IMPORTANT**: The `AzureExt` module has a dependency on the `Register-ArgumentCompleter` command, which is available in PowerShell version 5.0. Please see the "Argument Completers" heading below for more information.
 
 The Azure PowerShell Extensions module is being developed and tested against PowerShell 5.0 on Windows 10 Enterprise RTM (Build 10240).
 PowerShell 5.0 introduces the centralized [PowerShell Gallery](http://powershellgallery.com), which is exposed via the built-in `PowerShellGet` module.
@@ -98,10 +98,9 @@ The following PowerShell aliases apply to Virtual Machine commands.
 ## Auto-Completion
 
 Auto-completers are PowerShell ScriptBlocks that provide Intellisense & tab-completion for PowerShell command parameter values. 
-These functions require the presence of the TabExpansion++ PowerShell module, which is available from its [GitHub project page](https://github.com/lzybkr/TabExpansionPlusPlus/tree/DropScanningRegistration).
-Make sure that you download the **DropScanningRegistration** branch, as it has updated code that has not yet been merged into the **master** branch.
+These functions require the presence of the `Register-ArgumentCompleter` PowerShell command, which is available in PowerShell version 5.0.
 
-**NOTE**: This module **must** be imported in order for the Intellisense extensions to be registered.
+**NOTE**: The AzureExt module **must** be imported in order for the Intellisense extensions to be registered.
 To simplify this process, each time you launch a new PowerShell session, you can add a line to your PowerShell profile to import the module:
 
 ```
@@ -127,6 +126,7 @@ This module includes auto-completion for the following Azure entitites.
 - Resource Group names
 - Virtual Machine names
 - Storage Accounts
+- Resource Name, Resource Type, Resource Group Name for generic ARM "resource" commands
 
 ## Built-in Help
 

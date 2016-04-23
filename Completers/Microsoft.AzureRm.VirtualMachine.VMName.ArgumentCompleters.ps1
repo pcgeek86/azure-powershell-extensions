@@ -38,7 +38,7 @@ $ScriptBlock = {
 
 $ArgumentCompleterList = @(
     @{
-    Command = @(
+    CommandName = @(
         'Add-AzureRmVMAdditionalUnattendContent'
         'Add-AzureRmVMDataDisk'
         'Add-AzureRmVMNetworkInterface'
@@ -96,12 +96,12 @@ $ArgumentCompleterList = @(
         'Stop-AzureRmVM'
         'Update-AzureRmVM'
     );
-    Parameter = 'Name';
-    Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Machine cmdlets: Get-AzureRmVm -Name <TAB>';
+    ParameterName = 'Name';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Machine cmdlets: Get-AzureRmVm -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )
 
 foreach ($ArgumentCompleter in $ArgumentCompleterList) {
-    TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+    Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 }

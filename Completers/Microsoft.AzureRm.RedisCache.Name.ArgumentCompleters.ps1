@@ -38,7 +38,7 @@ $ScriptBlock = {
 
 $ArgumentCompleterList = @(
     @{
-    Command = @(
+    CommandName = @(
         'Get-AzureRmRedisCache'
         'Get-AzureRmRedisCacheKey'
         'New-AzureRmRedisCache'
@@ -46,12 +46,12 @@ $ArgumentCompleterList = @(
         'Remove-AzureRmRedisCache'
         'Set-AzureRmRedisCache'
     );
-    Parameter = 'Name';
-    Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Redis Cache cmdlets: Get-AzureRmRedisCache -Name <TAB>';
+    ParameterName = 'Name';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Redis Cache cmdlets: Get-AzureRmRedisCache -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )
 
 foreach ($ArgumentCompleter in $ArgumentCompleterList) {
-    TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+    Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 }

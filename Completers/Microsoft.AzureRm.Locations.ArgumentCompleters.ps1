@@ -1,5 +1,5 @@
 $ArgumentCompleter = @{
-    Command = @(
+    CommandName = @(
             'Add-AlertRule',
             'Add-AutoscaleSetting',
             'Add-AzureRmApiManagementRegion',
@@ -53,8 +53,8 @@ $ArgumentCompleter = @{
             'Update-AzureRmApiManagementDeployment',
             'Update-AzureRmApiManagementRegion'
     );
-    Parameter = 'Location';
-    Description = 'Complete the -Location parameter value for Azure Resource Manager cmdlets: New-AzureResource -Location <TAB>';
+    ParameterName = 'Location';
+    #Description = 'Complete the -Location parameter value for Azure Resource Manager cmdlets: New-AzureResource -Location <TAB>';
     ScriptBlock = {
         <#
         .SYNOPSIS
@@ -115,4 +115,4 @@ $ArgumentCompleter = @{
     }
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

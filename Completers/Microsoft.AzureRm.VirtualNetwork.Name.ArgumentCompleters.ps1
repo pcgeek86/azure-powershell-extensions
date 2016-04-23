@@ -38,7 +38,7 @@ $ScriptBlock = {
 
 $ArgumentCompleterList = @(
     @{
-    Command = @(
+    CommandName = @(
         'Get-AzureRmLocalNetworkGateway'
         'Get-AzureRmVirtualNetwork'
         'Get-AzureRmVirtualNetworkGateway'
@@ -54,12 +54,12 @@ $ArgumentCompleterList = @(
         'Reset-AzureRmVirtualNetworkGatewayConnectionSharedKey'
         'Set-AzureRmVirtualNetworkGatewayConnectionSharedKey'
     );
-    Parameter = 'Name';
-    Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Network cmdlets: Get-AzureRmVirtualNetwork -Name <TAB>';
+    ParameterName = 'Name';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Network cmdlets: Get-AzureRmVirtualNetwork -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )
 
 foreach ($ArgumentCompleter in $ArgumentCompleterList) {
-    TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+    Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 }

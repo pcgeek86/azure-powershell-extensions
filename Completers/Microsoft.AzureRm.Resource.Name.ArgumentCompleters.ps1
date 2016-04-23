@@ -1,5 +1,5 @@
 $ArgumentCompleter = @{
-    Command = @(
+    CommandName = @(
         'Get-AzureRmResource'
         'Get-AzureRmResourceLock'
         'Get-AzureRmRoleAssignment'
@@ -13,8 +13,8 @@ $ArgumentCompleter = @{
         'Set-AzureRmResource'
         'Set-AzureRmResourceLock'
     );
-    Parameter = 'ResourceName';
-    Description = 'Complete the -ResourceName parameter value for Azure Resource Manager cmdlets: Get-AzureResource -ResourceName <TAB>';
+    ParameterName = 'ResourceName';
+    #Description = 'Complete the -ResourceName parameter value for Azure Resource Manager cmdlets: Get-AzureResource -ResourceName <TAB>';
     ScriptBlock = {
         <#
         .SYNOPSIS
@@ -56,4 +56,4 @@ $ArgumentCompleter = @{
     }
 }
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;

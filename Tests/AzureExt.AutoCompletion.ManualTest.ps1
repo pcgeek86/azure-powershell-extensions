@@ -1,6 +1,6 @@
 <#
     .Synopsis
-    Helper script for testing Microsoft Azure argument-completer functions for TabExpansion++.
+    Helper script for testing Microsoft Azure argument-completer functions.
 #>
 #$VerbosePreference = 'continue';
 $AzureUsername = 'trevor@trevorsullivan.net';

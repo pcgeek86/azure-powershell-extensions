@@ -1,13 +1,13 @@
 $ArgumentCompleter = @{
-        Command = @('Get-AzureStorageContainerAcl', 
+        CommandName = @('Get-AzureStorageContainerAcl', 
                     'Get-AzureSiteRecoveryProtectionContainer', 
                     'Get-AzureStorageContainer', 
                     'New-AzureStorageContainer', 
                     'New-AzureStorageContainerSASToken', 
                     'Remove-AzureStorageContainer', 
                     'Set-AzureStorageContainerAcl');
-        Parameter = 'Name';
-        Description = 'Complete the -Name parameter value for Azure cmdlets:  Get-AzureStorageContainer -Context $Context -Name <TAB>';
+        ParameterName = 'Name';
+        #Description = 'Complete the -Name parameter value for Azure cmdlets:  Get-AzureStorageContainer -Context $Context -Name <TAB>';
         ScriptBlock = {
         <#
         .SYNOPSIS
@@ -43,4 +43,4 @@ $ArgumentCompleter = @{
     }
 
 
-TabExpansion++\Register-ArgumentCompleter @ArgumentCompleter;
+Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
