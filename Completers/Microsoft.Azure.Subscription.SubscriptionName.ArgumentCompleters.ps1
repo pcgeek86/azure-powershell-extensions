@@ -25,29 +25,16 @@
 
         #Write-Verbose -Message ('Called Azure SubscriptionName completer at {0}' -f (Get-Date))
 
-        ### Attempt to read Azure subscription details from the cache
-        $CacheKey = 'AzureSubscription_SubscriptionNameCache'
-        $SubscriptionNameCache = Get-CompletionPrivateData -Key $CacheKey
-
-        ### If there is a valid cache for the Azure subscription names, then go ahead and return them immediately
-        if ($SubscriptionNameCache) {
-            return $SubscriptionNameCache
-        }
-
         ### Create fresh completion results for Azure subscriptions
         $ItemList = Get-AzureSubscription | Where-Object { $PSItem.SubscriptionName -match ${wordToComplete} } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.SubscriptionName
-                ToolTip = 'Azure subscription "{0}" with ID {1}.' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId
-                ListItemText = '{0} ({1})' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
-                }
-            New-CompletionResult @CompletionResult
+            $CompletionText = $PSItem.SubscriptionName
+            $ToolTip = 'Azure subscription "{0}" with ID {1}.' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId
+            $ListItemText = '{0} ({1})' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
     
-        ### Update the cache for Azure subscription names
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList
-
         ### Return the fresh completion results
         return $ItemList
     }

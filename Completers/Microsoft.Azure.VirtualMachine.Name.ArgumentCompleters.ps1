@@ -23,30 +23,16 @@ $ArgumentCompleter = @{
 
         #Write-Verbose -Message ('Called Azure Virtual Machine Name completer at {0}' -f (Get-Date))
 
-        ### Attempt to read Azure virtual machine details from the cache
-        $CacheKey = 'AzureVirtualMachine_NameCache'
-        $VirtualMachineNameCache = Get-CompletionPrivateData -Key $CacheKey
-
-        ### If there is a valid cache for the Azure virtual machine names, then go ahead and return them immediately
-        if ($VirtualMachineNameCache -and (Get-Date) -gt $VirtualMachineNameCache.ExpirationTime) {
-            return $VirtualMachineNameCache
-        }
-
         ### Create fresh completion results for Azure virtual machines
         $ItemList = Get-AzureVM | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = '{0} -ServiceName {1}' -f $PSItem.Name, $PSItem.ServiceName
-                ToolTip = 'Azure VM {0}/{1} in state {2}.' -f $PSItem.ServiceName, $PSItem.Name, $PSItem.Status
-                ListItemText = '{0}/{1}' -f $PSItem.ServiceName, $PSItem.Name
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
-                NoQuotes = $true
-                }
-            New-CompletionResult @CompletionResult
+            $CompletionText = '{0} -ServiceName {1}' -f $PSItem.Name, $PSItem.ServiceName
+            $ToolTip = 'Azure VM {0}/{1} in state {2}.' -f $PSItem.ServiceName, $PSItem.Name, $PSItem.Status
+            $ListItemText = '{0}/{1}' -f $PSItem.ServiceName, $PSItem.Name
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
     
-        ### Update the cache for Azure virtual machines
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList
-
         ### Return the fresh completion results
         return $ItemList
     }

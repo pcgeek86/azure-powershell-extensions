@@ -86,30 +86,16 @@ $ArgumentCompleter = @{
             Write-Output -InputObject $LocationList;
         }
 
-        ### Attempt to read Azure virtual machine details from the cache
-        $CacheKey = 'Azure_LocationCache';
-        $Cache = Get-CompletionPrivateData -Key $CacheKey;
-
-        ### If there is a valid cache for the Azure virtual machine names, then go ahead and return them immediately
-        if ($Cache -and (Get-Date) -gt $Cache.ExpirationTime) {
-            return $Cache;
-        }
-
         ### Create fresh completion results for Azure virtual machines
         $ItemList = Get-AllAzureLocations | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem;
-                ToolTip = $PSItem;
-                ListItemText = $PSItem;
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                NoQuotes = $false;
-                }
-            New-CompletionResult @CompletionResult;
+            $CompletionText = $PSItem;
+            $ToolTip = $PSItem;
+            $ListItemText = $PSItem;
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
     
-        ### Update the cache for Azure virtual machines
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList;
-
         ### Return the fresh completion results
         return $ItemList;
     }

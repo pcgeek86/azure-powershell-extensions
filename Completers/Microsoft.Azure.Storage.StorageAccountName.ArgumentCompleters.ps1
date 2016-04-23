@@ -29,25 +29,15 @@ $ArgumentCompleter =     @{
 
         #Write-Verbose -Message ('Called Azure StorageAccountName completer at {0}' -f (Get-Date))
 
-        $CacheKey = 'StorageAccount_StorageAccountNameCache'
-        $StorageAccountNameCache = Get-CompletionPrivateData -Key $CacheKey
-
-        ### Return the cached value if it has not expired
-        if ($StorageAccountNameCache) {
-            return $StorageAccountNameCache
-        }
-
         $StorageAccountList = Get-AzureStorageAccount -WarningAction SilentlyContinue | Where-Object {$PSItem.StorageAccountName -match ${wordToComplete} } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.StorageAccountName
-                ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location
-                ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
-                }
-            New-CompletionResult @CompletionResult
+            $CompletionText = $PSItem.StorageAccountName
+            $ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location
+            $ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
 
-        Set-CompletionPrivateData -Key $CacheKey -Value $StorageAccountList
         return $StorageAccountList
         }
     }

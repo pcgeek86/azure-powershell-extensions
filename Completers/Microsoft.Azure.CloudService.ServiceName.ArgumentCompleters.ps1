@@ -25,23 +25,14 @@ $ArgumentCompleter = @{
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        #Write-Verbose -Message ('Called Azure ServiceName completer at {0}' -f (Get-Date))
-        $CacheKey = 'CloudService_ServiceNameCache'
-        $ServiceNameCache = Get-CompletionPrivateData -Key $CacheKey
-        if ($ServiceNameCache) {
-            return $ServiceNameCache
-        }
-
         $ItemList = Get-AzureService | Where-Object { $PSItem.ServiceName -match $wordToComplete } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.ServiceName
-                ToolTip = 'Cloud Service in "{0}" region.' -f $PSItem.ExtendedProperties.ResourceLocation
-                ListItemText = '{0} ({1})' -f $PSItem.ServiceName, $PSItem.ExtendedProperties.ResourceLocation
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
-                }
-            New-CompletionResult @CompletionResult
+            $CompletionText = $PSItem.ServiceName
+            $ToolTip = 'Cloud Service in "{0}" region.' -f $PSItem.ExtendedProperties.ResourceLocation
+            $ListItemText = '{0} ({1})' -f $PSItem.ServiceName, $PSItem.ExtendedProperties.ResourceLocation
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList
 
         return $ItemList
     }

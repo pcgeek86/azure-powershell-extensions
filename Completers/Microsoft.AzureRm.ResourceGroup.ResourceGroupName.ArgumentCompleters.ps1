@@ -9,28 +9,19 @@ $ScriptBlock = {
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        $CacheKey = 'ResourceGroup_ResourceGroupNameCache';
-        $Cache = Get-CompletionPrivateData -Key $CacheKey;
-        if ($Cache) {
-            return $Cache;
-        }
-
         try {
             $ResourceGroupList = Get-AzureRmResourceGroup -ErrorAction Stop;
         } catch {
             Write-Host -Object ('Error occurred retrieving resource groups: {0}' -f $PSItem.Exception.Message);
         }
         $ItemList = $ResourceGroupList | Where-Object { $PSItem.ResourceGroupName -match $wordToComplete } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.ResourceGroupName;
-                ToolTip = 'Resource Group {0} in {1} region.' -f $PSItem.ResourceGroupName, $PSItem.Location;
-                ListItemText = '{0} ({1})' -f $PSItem.ResourceGroupName, $PSItem.Location;
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                NoQuotes = $true;
-                }
-            New-CompletionResult @CompletionResult;
+            CompletionText = $PSItem.ResourceGroupName;
+            ToolTip = 'Resource Group {0} in {1} region.' -f $PSItem.ResourceGroupName, $PSItem.Location;
+            ListItemText = '{0} ({1})' -f $PSItem.ResourceGroupName, $PSItem.Location;
+            CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
-        Set-CompletionPrivateData -Key $CacheKey -Value $ItemList;
 
         return $ItemList
     }

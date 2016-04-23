@@ -19,25 +19,15 @@ $ArgumentCompleter = @{
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        $CacheKey = 'AzureStorage_ContainerNameCache'
-        $ContainerNameCache = Get-CompletionPrivateData -Key $CacheKey
-
-        ### Return the cached value if it has not expired
-        if ($ContainerNameCache) {
-            return $ContainerNameCache
-        }
-
         $ContainerList = Get-AzureStorageContainer -Context $fakeBoundParameter['Context'] | Where-Object -FilterScript { $PSItem.Name -match ${wordToComplete} } | ForEach-Object {
-            $CompletionResult = @{
-                CompletionText = $PSItem.Name
-                ToolTip = 'Storage Container "{0}" in "{1}" Storage Account.' -f $PSItem.Name, $fakeBoundParameter['Context'].StorageAccountName
-                ListItemText = '{0} ({1})' -f $PSItem.Name, $fakeBoundParameter['Context'].StorageAccountName
-                CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
-                }
-            New-CompletionResult @CompletionResult
+            $CompletionText = $PSItem.Name
+            $ToolTip = 'Storage Container "{0}" in "{1}" Storage Account.' -f $PSItem.Name, $fakeBoundParameter['Context'].StorageAccountName
+            $ListItemText = '{0} ({1})' -f $PSItem.Name, $fakeBoundParameter['Context'].StorageAccountName
+            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue
+
+            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
 
-        Set-CompletionPrivateData -Key $CacheKey -Value $ContainerList
         return $ContainerList
         }
     }

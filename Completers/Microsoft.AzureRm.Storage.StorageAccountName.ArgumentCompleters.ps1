@@ -10,25 +10,16 @@ $ScriptBlock = {
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        $CacheKey = 'RmStorageAccount_StorageAccountNameCache';
-        $Cache = Get-CompletionPrivateData -Key $CacheKey;
-
-        ### Return the cached value if it has not expired
-        #if ($Cache) { return $Cache; }
-
         try {
             $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.StorageAccountName -match $wordToComplete } | ForEach-Object {
-                $CompletionResult = @{
-                    CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.StorageAccountName, $PSItem.ResourceGroupName;
-                    ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location;
-                    ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location;
-                    CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
-                    NoQuotes = $true;
-                    }
-                New-CompletionResult @CompletionResult;
+                $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.StorageAccountName, $PSItem.ResourceGroupName;
+                $ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location;
+                $ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location;
+                $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+
+                New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
             }
 
-            Set-CompletionPrivateData -Key $CacheKey -Value $StorageAccountList;
             return $StorageAccountList;
         }
         catch {
