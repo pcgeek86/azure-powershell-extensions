@@ -7,7 +7,7 @@ branches:
 ### Disable the build process
 build: off
   
-os: Unstable
+os: "WMF 5"
 
 clone_folder: c:\repos\AzureExt
 

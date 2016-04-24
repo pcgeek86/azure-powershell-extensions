@@ -1,0 +1,59 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-networkinterface</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Network Interface resource.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[      {
+          "type": "Microsoft.Network/networkInterfaces",
+          "apiVersion": "2016-03-30",
+          "location": "West US",
+          "name": "nic-web01",
+          "properties": {
+              "networkSecurityGroup": {
+                  "id": "<ResourceIdOfNetworkSecurityGroup>"
+              }
+              "dnsSettings": {
+                  "dnsServers": [
+                      "8.8.8.8",
+                      "8.8.4.4"
+                  ]
+              },
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                  {
+                      "name": "ipconfig1",
+                      "properties": {
+                          "loadBalancerBackendAddressPools": [
+                              "WebServers"
+                          ],
+                          "loadBalancerInboundNatRules": [
+                              "RDP-web01"
+                          ],
+                          "subnet": {
+                              "id": "<ResourceIdOfVirtualNetworkSubnet>"
+                          },
+                          "privateIPAddress": "10.5.0.10",
+                          "privateIPAllocationMethod": "Static",
+                          "publicIPAddress": {
+                              "id": "<ResourceIdOfPublicIpAddress>"
+                          }
+                      }
+                  }
+              ]
+          }
+      }]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

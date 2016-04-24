@@ -40,9 +40,15 @@
     <Content Include="en-us\README.md" />
     <Content Include="README.md" />
     <Content Include="Snippets\arm-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-documentdb.snippets.ps1xml" />
+    <Content Include="Snippets\arm-networkinterface.snippets.ps1xml" />
+    <Content Include="Snippets\arm-networksecuritygroup.snippets.ps1xml" />
+    <Content Include="Snippets\arm-parameter.snippets.ps1xml" />
     <Content Include="Snippets\arm-publicipaddress.snippets.ps1xml" />
+    <Content Include="Snippets\arm-rediscache.snippets.ps1xml" />
     <Content Include="Snippets\arm-storageaccount.snippets.ps1xml" />
     <Content Include="Snippets\arm-template.snippets.ps1xml" />
+    <Content Include="Snippets\arm-variable.snippets.ps1xml" />
     <Content Include="Snippets\arm-virtualnetwork.snippets.ps1xml" />
   </ItemGroup>
   <ItemGroup>
