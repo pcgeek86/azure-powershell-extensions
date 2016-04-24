@@ -13,7 +13,7 @@ clone_folder: c:\repos\AzureExt
 
 environment:
   PSGalleryApiKey:
-    secure: 91WlCn2hlOMWHxSRh3pNANAxkB+Ji5drxv9xSKjYDD31cjShwRf0kWPvfVMBvmbV
+    secure: SlvbZKurugx1nGHlyk6VB1dXh3IJOWsY/Ds2bGBpknpze8R3os5pHGmPeyJXHv9K
 
 deploy_script:
   - ps: . "$env:APPVEYOR_BUILD_FOLDER\Patch-ModuleManifest.ps1";
