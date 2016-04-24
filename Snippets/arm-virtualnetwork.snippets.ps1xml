@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-virtualnetwork</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Virtual Network resource.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[      {
+          "type": "Microsoft.Network/virtualNetworks",
+          "apiVersion": "2016-03-30",
+          "location": "West US",
+          "name": "ArtofShellVNet",
+          "properties": {
+              "addressSpace": {
+                  "addressPrefixes": [
+                      "10.5.0.0/16",
+                      "10.10.0.0/16"
+                  ]
+              },
+              "dhcpOptions": {
+                  "dnsServers": [
+                      "8.8.8.8",
+                      "8.8.4.4"
+                  ]
+              },
+              "subnets": [
+                  {
+                      "name": "WebServers",
+                      "properties": {
+                          "addressPrefix": "10.5.0.0/24",
+                          "networkSecurityGroup": {
+                              "id": "<ResourceIdForNetworkSecurityGroup>"
+                          },
+                          "routeTable": {
+                              "id": "<ResourceIdForRouteTable>"
+                          }
+                      }
+                  },
+                  {
+                      "name": "DatabaseServers",
+                      "properties": {
+                          "addressPrefix": "10.10.0.0/24"
+                      }
+                  }
+              ]
+          }
+      }]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

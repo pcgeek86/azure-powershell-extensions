@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-storageaccount</Title>
+                <Description>This snippet adds a Microsoft Azure Storage Account resource.</Description>
+                <Author></Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[      {
+          "type": "Microsoft.Storage/storageAccounts",
+          "apiVersion": "2015-06-15",
+          "name": "mystorageaccountname",
+          "location": "West US",
+          "properties": {
+              "accountType": "Premium_LRS"
+          }
+      }]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

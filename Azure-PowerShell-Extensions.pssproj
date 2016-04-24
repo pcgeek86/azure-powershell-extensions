@@ -39,6 +39,11 @@
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="en-us\README.md" />
     <Content Include="README.md" />
+    <Content Include="Snippets\arm-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-publicipaddress.snippets.ps1xml" />
+    <Content Include="Snippets\arm-storageaccount.snippets.ps1xml" />
+    <Content Include="Snippets\arm-template.snippets.ps1xml" />
+    <Content Include="Snippets\arm-virtualnetwork.snippets.ps1xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aliases\README.MD" />
@@ -77,6 +82,7 @@
     <Folder Include="Completers\" />
     <Folder Include="Aliases\" />
     <Folder Include="Format Types\" />
+    <Folder Include="Snippets\" />
     <Folder Include="Tests\" />
     <Folder Include="Type Data\" />
   </ItemGroup>

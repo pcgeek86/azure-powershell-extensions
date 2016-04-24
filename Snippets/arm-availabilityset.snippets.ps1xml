@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-availabilityset</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Availability Set resource.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[      {
+          "type": "Microsoft.Compute/availabilitySets",
+          "apiVersion": "2015-06-15",
+          "location": "West US",
+          "name": "ArtofShellAVSet",
+          "properties": {
+              "platformFaultDomainCount": 3,
+              "platformUpdateDomainCount": 5
+          }
+      }]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

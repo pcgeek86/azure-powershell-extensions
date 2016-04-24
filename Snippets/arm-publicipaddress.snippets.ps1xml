@@ -1,0 +1,32 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-publicipaddress</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Public IP Address resource.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[      {
+          "type": "Microsoft.Network/publicIPAddresses",
+          "apiVersion": "2016-03-30",
+          "location": "West US",
+          "properties": {
+              "publicIPAllocationMethod": "Dynamic",
+              "dnsSettings": {
+                  "domainNameLabel": "",
+                  "reverseFqdn": ""
+              }
+          }
+      }]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+
