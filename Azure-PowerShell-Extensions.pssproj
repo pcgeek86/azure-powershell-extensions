@@ -68,6 +68,7 @@
     <Compile Include="Completers\Microsoft.AzureRm.VirtualNetwork.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.NetworkInterface.Name.ArgumentCompleters.ps1" />
     <Compile Include="Functions\Public\Invoke-AzureRmRemoteDesktop.ps1" />
+    <Compile Include="Functions\Public\Start-AzureRm.ps1" />
     <Compile Include="Tests\AzureExt.AutoCompletion.ManualTest.ps1" />
     <Compile Include="Tests\AzureExt.tests.ps1" />
     <Compile Include="Aliases\AzureRm.Profile.Aliases.json" />
