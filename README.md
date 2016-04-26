@@ -105,10 +105,12 @@ To simplify this process, each time you launch a new PowerShell session, you can
 
 ```
 Import-Module -Name AzureExt;
+Start-AzureRm;
 ```
 
 **IMPORTANT**: For most argument completer functions, you must be authenticated to Microsoft Azure.
-Starting with the 1.0 release of the Azure Resource Manager module, token caches are not automatically saved between PowerShell sessions.
+Starting with the 1.0 release of the Azure Resource Manager module, token caches are not automatically saved between PowerShell sessions. To simplify the process of authenticating each time you login, we created a command called `Start-AzureRm`.
+
 For Azure Service Management commands, use `Add-AzureAccount` to login. 
 For Azure Resource Manager commands, use `Login-AzureRmAccount` to login.
 
@@ -130,13 +132,9 @@ This module includes auto-completion for the following Azure entitites.
 
 ## Built-in Help
 
-# Issues
-
-For issues or enhancement requests related to this project, please report them on the GitHub issue tracker.
-
 # Authors
 
-The founder of this project is Trevor Sullivan, a Microsoft MVP for Windows PowerShell, and an independent Cloud & Automation Consultant.
+The founder of this project is [Trevor Sullivan](https://trevorsullivan.net).
 
 # Contributing
 
