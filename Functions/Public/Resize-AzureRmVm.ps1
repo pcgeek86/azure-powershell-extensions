@@ -1,4 +1,4 @@
-function Resize-AzureRmVm {
+function Resize-AzureRmVM {
     <#
     .Synopsis
     Resizes Microsoft Azure Virtual Machines to a new size.
@@ -46,7 +46,7 @@ function Resize-AzureRmVm {
         try {        
             if ($PSCmdlet.ParameterSetName -eq 'Gui') {
                 $VMList = Get-AzureRmVm | Out-GridView -OutputMode Multiple -Title 'Please select an Azure Virtual Machine to resize.';
-                $TargetSize = Get-AzureRmVmSize | Out-GridView -OutputMode Single -Title 'Please select a target Azure Virtual Machine size.';
+                $TargetSize = Get-AzureRmVmSize -Location westus | Out-GridView -OutputMode Single -Title 'Please select a target Azure Virtual Machine size.';
                 foreach ($VM in $VMList) {
                     Write-Verbose -Message ('Resizing Microsoft Azure Virtual Machine {0} in Resource Group {1} to size {2}' -f $VM.Name, $VM.ResourceGroupName, $TargetSize);
                     $VM.HardwareProfile.VmSize = $TargetSize.Name;
