@@ -87,7 +87,7 @@ $ArgumentCompleter = @{
         }
 
         ### Create fresh completion results for Azure virtual machines
-        $ItemList = Get-AllAzureLocations | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+        $ItemList = Get-AllAzureLocations | Where-Object { $PSItem -match $wordToComplete } | ForEach-Object {
             $CompletionText = $PSItem;
             $ToolTip = $PSItem;
             $ListItemText = $PSItem;
