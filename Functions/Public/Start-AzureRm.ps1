@@ -20,7 +20,7 @@ function Start-AzureRm {
         Select-AzureRmProfile -Path $script:AzureProfilePath;
         Find-AzureRmResourceGroup -Tag @{ Name = 'Company'; };
     } catch {
-        $AzureProfile = Add-AzureRmAccount -Credential (Get-Credential trevor@trevorsullivan.net);
+        $AzureProfile = Add-AzureRmAccount -Credential (Get-Credential);
         Save-AzureRmProfile -Path $script:AzureProfilePath -Profile $AzureProfile;
     }
     
