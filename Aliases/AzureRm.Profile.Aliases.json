@@ -21,7 +21,11 @@
       },
       {
         "Name": "svazpr",
-        "Value":  "Save-AzureRmProfile"
+        "Value": "Save-AzureRmProfile"
+      },
+      {
+        "Name": "saazrm",
+        "Value": "Start-AzureRm"
       }
     ]
 }
