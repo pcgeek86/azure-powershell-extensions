@@ -130,6 +130,15 @@ This module includes auto-completion for the following Azure entitites.
 - Storage Accounts
 - Resource Name, Resource Type, Resource Group Name for generic ARM "resource" commands
 
+## Snippets
+
+The AzureExt module provides a number of useful PowerShell code snippets that can be used in the PowerShell Integrated Scripting Editor (ISE). To utilize these code snippets, run the following commands:
+
+```
+Import-Module -Name AzureExt;
+Import-IseSnippet -Module AzureExt;
+```
+
 ## Built-in Help
 
 # Authors
