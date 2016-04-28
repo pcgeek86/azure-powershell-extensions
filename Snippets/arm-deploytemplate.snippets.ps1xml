@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-deploytemplate</Title>
+                <Description>This snippet enables you to rapidly deploy a Microsoft Azure Resource Manager (ARM) JSON Template.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[#region Authenticate to Microsoft Azure
+$AzureUsername = 'trevor@artofshell.com';
+$AzureCredential = Get-Credential -Message 'Please enter your Microsoft Azure Active Directory (AAD) password.' -UserName $AzureUsername;
+Add-AzureRmAccount -Credential $AzureCredential;
+#endregion
+
+#region Create a new Azure Resource Manager (ARM) Resource Group
+$ResourceGroup = @{
+    Name = '';
+    Location = 'West US';
+    Force = $true;
+}
+New-AzureRmResourceGroup @ResourceGroup;
+#endregion
+
+#region Deploy an Azure Resource Manager (ARM) JSON Tepmlate
+$Deployment = @{
+    ResourceGroupName = $ResourceGroup.Name ### This is the Resource Group where the ARM JSON Template will be deployed into
+    Name = 'MyCoolDeployment';   ### This is the name of the Deployment object that will be created inside the Resource Group
+    TemplateUri = '';            ### The URL to the publicly (anonymously) accessible ARM JSON Template file
+    TemplateParameterObject = @{ ### These are the input parameters that are fed to the ARM Template
+        Param1 = 'Value1';
+        Param2 = 'Value2';
+    }
+    Mode = 'Incremental';        ### You can perform an "incremental" deployment or a "complete" deployment, 
+                                 ### the latter of which wipes out all existing resources in the target Resource Group.
+    DeploymentDebugLevel = 'All';
+    Force = $true;
+}
+New-AzureRmResourceGroupDeployment @Deployment;
+#endregion]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

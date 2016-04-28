@@ -40,6 +40,7 @@
     <Content Include="en-us\README.md" />
     <Content Include="README.md" />
     <Content Include="Snippets\arm-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-deploytemplate.snippets.ps1xml" />
     <Content Include="Snippets\arm-documentdb.snippets.ps1xml" />
     <Content Include="Snippets\arm-networkinterface.snippets.ps1xml" />
     <Content Include="Snippets\arm-networksecuritygroup.snippets.ps1xml" />
