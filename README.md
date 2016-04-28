@@ -70,6 +70,13 @@ However, we recommend importing the module, to ensure that all features (includi
 
 # Features
 
+## Functions
+
+The `AzureExt` PowerShell module includes some useful functions that make it easier to work with the Azure PowerShell module. These are not intended to replace the Azure PowerShell module, but to provide a more user-friendly experience on top of it.
+
+- **Remove-AzuremRmResourceGroupGui** - This command enables you to delete multiple Microsoft Azure Resource Manager (ARM) Resource Groups at once, by CTRL + clicking them in the dialog that pops up
+- **Start-AzureRm** - The Microsoft Azure Resource Manager (ARM) PowerShell module removed the default behavior of caching your token. To simplify logging into Azure, each time you start a new PowerShell session, the `Start-AzureRm` command caches your token, and if it has expired, then it will prompt you to authenticate using the faster-loading `Get-Credential` command.
+
 ## Aliases
 
 The abbreviation "az" will generally be used to refer to "Azure" in PowerShell command aliases, to differentiate them from other aliases.
@@ -132,7 +139,13 @@ This module includes auto-completion for the following Azure entitites.
 
 ## Snippets
 
-The AzureExt module provides a number of useful PowerShell code snippets that can be used in the PowerShell Integrated Scripting Editor (ISE). To utilize these code snippets, run the following commands:
+The AzureExt module provides a number of useful PowerShell code snippets that can be used in the PowerShell Integrated Scripting Editor (ISE). Snippets are provided for things such as:
+
+- JSON declaration of Azure Resource Manager (ARM) resources
+  - For example, you could build an ARM JSON Template in a PowerShell here-string, without leaving the ISE
+- Deploy an Azure Resource Manager (ARM) JSON Template
+
+To utilize these code snippets, run the following commands:
 
 ```
 Import-Module -Name AzureExt;
