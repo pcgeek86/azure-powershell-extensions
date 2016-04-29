@@ -20,7 +20,6 @@
 New-AzureRmResourceGroup @ResourceGroup;]]>
                 </Script>
             </Code>
-
     </Snippet>
 </Snippets>
 

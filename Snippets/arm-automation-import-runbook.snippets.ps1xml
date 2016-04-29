@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-import-runbook</Title>
+                <Description>This snippet enables you to rapidly import a Microsoft Azure Resource Manager (ARM) Automation Runbook.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[### Import an Azure Automation Runbook
+$Runbook = @{
+    AutomationAccountName = $AutomationAccount.Name;
+    Path = '{0}\02-RunbookExample.ps1' -f $PSScriptRoot;
+    Description = 'This is an example Runbook';
+    Type = 'PowerShell';
+    Published = $true;
+    Force = $true;
+    };
+Import-AzureRmAutomationRunbook @Runbook;]]>
+                </Script>
+            </Code>
+    </Snippet>
+</Snippets>
+

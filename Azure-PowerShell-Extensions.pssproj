@@ -40,11 +40,12 @@
     <Content Include="en-us\README.md" />
     <Content Include="Format Types\Azure.VirtualMachine.format.ps1xml" />
     <Content Include="README.md" />
-    <Content Include="Snippets\arm-authenticate.snippets.ps1xml" />
+    <Content Include="Snippets\arm-core-authenticate.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-availabilityset.snippets.ps1xml" />
-    <Content Include="Snippets\arm-automationaccount.snippets.ps1xml" />
-    <Content Include="Snippets\arm-resourcegroup.snippets.ps1xml" />
-    <Content Include="Snippets\arm-deploytemplate.snippets.ps1xml" />
+    <Content Include="Snippets\arm-automation-create-account.snippets.ps1xml" />
+    <Content Include="Snippets\arm-automation-import-runbook.snippets.ps1xml" />
+    <Content Include="Snippets\arm-core-resourcegroup.snippets.ps1xml" />
+    <Content Include="Snippets\arm-core-deploytemplate.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-documentdb.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-networkinterface.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-networksecuritygroup.snippets.ps1xml" />
@@ -52,7 +53,7 @@
     <Content Include="Snippets\arm-json-publicipaddress.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-rediscache.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-storageaccount.snippets.ps1xml" />
-    <Content Include="Snippets\arm-template.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-template.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-variable.snippets.ps1xml" />
     <Content Include="Snippets\arm-json-virtualnetwork.snippets.ps1xml" />
   </ItemGroup>
@@ -62,6 +63,7 @@
     <Compile Include="AzureExt.psm1" />
     <Compile Include="Completers\Microsoft.AzureRm.RedisCache.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Resource.Name.ArgumentCompleters.ps1" />
+    <Compile Include="Completers\Microsoft.AzureRm.Automation.AutomationAccountName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Storage.StorageAccountName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.ResourceGroup.ResourceGroupName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.Azure.CloudService.ServiceName.ArgumentCompleters.ps1" />
