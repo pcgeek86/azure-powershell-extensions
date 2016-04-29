@@ -41,6 +41,7 @@
     <Content Include="Format Types\Azure.VirtualMachine.format.ps1xml" />
     <Content Include="README.md" />
     <Content Include="Snippets\arm-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-resourcegroup.ps1xml" />
     <Content Include="Snippets\arm-deploytemplate.snippets.ps1xml" />
     <Content Include="Snippets\arm-documentdb.snippets.ps1xml" />
     <Content Include="Snippets\arm-networkinterface.snippets.ps1xml" />

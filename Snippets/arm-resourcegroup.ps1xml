@@ -1,0 +1,26 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-resourcegroup</Title>
+                <Description>This snippet enables you to rapidly deploy a Microsoft Azure Resource Manager (ARM) Resource Group.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[$ResourceGroup = @{
+    Name = '';
+    Location = 'West US';
+    Force = $true;
+}
+New-AzureRmResourceGroup @ResourceGroup;]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+
