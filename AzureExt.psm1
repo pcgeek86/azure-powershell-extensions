@@ -58,3 +58,4 @@ foreach ($FormatFile in $FormatFileList) {
     Write-Verbose -Message ('Added format file: {0}' -f $FormatFile.Name);
 }
 #endregion
+

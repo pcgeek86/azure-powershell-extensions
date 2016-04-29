@@ -23,9 +23,6 @@ function Start-AzureRm {
         $AzureProfile = Add-AzureRmAccount -Credential (Get-Credential);
         Save-AzureRmProfile -Path $script:AzureProfilePath -Profile $AzureProfile;
     }
-    
-    ### Load the Azure PowerShell Extensions, if available
-    if (Get-Module -ListAvailable -Name AzureExt) {
-        Import-Module -Name AzureExt;
-    }
+
+    Import-IseSnippet -Module AzureExt;
 }
