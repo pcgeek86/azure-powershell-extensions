@@ -40,19 +40,21 @@
     <Content Include="en-us\README.md" />
     <Content Include="Format Types\Azure.VirtualMachine.format.ps1xml" />
     <Content Include="README.md" />
-    <Content Include="Snippets\arm-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-authenticate.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-availabilityset.snippets.ps1xml" />
+    <Content Include="Snippets\arm-automationaccount.snippets.ps1xml" />
     <Content Include="Snippets\arm-resourcegroup.snippets.ps1xml" />
     <Content Include="Snippets\arm-deploytemplate.snippets.ps1xml" />
-    <Content Include="Snippets\arm-documentdb.snippets.ps1xml" />
-    <Content Include="Snippets\arm-networkinterface.snippets.ps1xml" />
-    <Content Include="Snippets\arm-networksecuritygroup.snippets.ps1xml" />
-    <Content Include="Snippets\arm-parameter.snippets.ps1xml" />
-    <Content Include="Snippets\arm-publicipaddress.snippets.ps1xml" />
-    <Content Include="Snippets\arm-rediscache.snippets.ps1xml" />
-    <Content Include="Snippets\arm-storageaccount.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-documentdb.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-networkinterface.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-networksecuritygroup.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-parameter.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-publicipaddress.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-rediscache.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-storageaccount.snippets.ps1xml" />
     <Content Include="Snippets\arm-template.snippets.ps1xml" />
-    <Content Include="Snippets\arm-variable.snippets.ps1xml" />
-    <Content Include="Snippets\arm-virtualnetwork.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-variable.snippets.ps1xml" />
+    <Content Include="Snippets\arm-json-virtualnetwork.snippets.ps1xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aliases\README.MD" />

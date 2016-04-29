@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-authenticate</Title>
+                <Description>This snippet enables you to rapidly authenticate to Microsoft Azure Resource Manager (ARM) using Azure Active Directory (AAD).</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[### Authenticate to Microsoft Azure using Azure Active Directory (AAD)
+$AzureUsername = 'trevor@artofshell.com';
+$AzureCredential = Get-Credential -Username $AzureUsername -Message 'Please enter your Microsoft Azure password.';
+Add-AzureRmAccount -Credential $AzureCredential]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

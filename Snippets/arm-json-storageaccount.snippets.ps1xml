@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-storageaccount</Title>
+                <Title>arm-json-storageaccount</Title>
                 <Description>This snippet adds a Microsoft Azure Storage Account resource.</Description>
                 <Author></Author>
                 <SnippetTypes>

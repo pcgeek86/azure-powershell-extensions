@@ -2,9 +2,9 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-json-template</Title>
-                <Description>This snippet adds the basic structure for a Microsoft Azure Resource Manager (ARM) JSON Template.</Description>
-                <Author></Author>
+                <Title>arm-json-variable</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) JSON Template variable.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
                 <SnippetTypes>
                     <SnippetType>Expansion</SnippetType>
                 </SnippetTypes>
@@ -12,14 +12,10 @@
 
             <Code>
                 <Script Language='PowerShell' CaretOffset='0'>
-                    <![CDATA[{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": { },
-  "variables": { },
-  "resources": [ ],
-  "outputs": { }
-}]]>
+                    <![CDATA[      "VariableName": {
+          "property1": "value1",
+          "property2": "value2"
+      }]]>
                 </Script>
             </Code>
 

@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-networksecuritygroup</Title>
+                <Title>arm-json-networksecuritygroup</Title>
                 <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Network Security Group (NSG) resource.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
                 <SnippetTypes>

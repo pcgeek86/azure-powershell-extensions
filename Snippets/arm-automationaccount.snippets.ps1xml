@@ -1,0 +1,32 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>arm-automationaccount</Title>
+                <Description>This snippet enables you to rapidly deploy a Microsoft Azure Resource Manager (ARM) Automation Account.</Description>
+                <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[### Create a new Microsoft Azure Automation Account
+$AutomationAccount = @{
+    ResourceGroupName = $ResourceGroup.Name;
+    Name = '';
+    Location = 'West US';
+    Plan = 'Free'; ### Basic is also supported
+    Tags = @(
+        @{ Name = 'Company'; Value = 'Art of Shell'; };
+        @{ Name = 'Department'; Value = 'Finance'; };
+        )
+    };
+New-AzureRmAutomationAccount @AutomationAccount;]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

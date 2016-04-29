@@ -2,8 +2,8 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-parameter</Title>
-                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) JSON Template parameter.</Description>
+                <Title>arm-json-availabilityset</Title>
+                <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Availability Set resource.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
                 <SnippetTypes>
                     <SnippetType>Expansion</SnippetType>
@@ -12,20 +12,15 @@
 
             <Code>
                 <Script Language='PowerShell' CaretOffset='0'>
-                    <![CDATA[      "param1": {
-          "allowedValues": [
-              "",
-              ""
-          ],
-          "defaultValue": "",
-          "type": "string",
-          "metadata": {
-              "description": ""
-          },
-          "minLength": 5,
-          "maxLength": 10,
-          "minValue": 5,
-          "maxValue": 10
+                    <![CDATA[      {
+          "type": "Microsoft.Compute/availabilitySets",
+          "apiVersion": "2015-06-15",
+          "location": "West US",
+          "name": "ArtofShellAVSet",
+          "properties": {
+              "platformFaultDomainCount": 3,
+              "platformUpdateDomainCount": 5
+          }
       }]]>
                 </Script>
             </Code>
