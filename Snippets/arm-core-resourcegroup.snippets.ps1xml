@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-resourcegroup</Title>
+                <Title>arm-core-resourcegroup</Title>
                 <Description>This snippet enables you to rapidly deploy a Microsoft Azure Resource Manager (ARM) Resource Group.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
                 <SnippetTypes>

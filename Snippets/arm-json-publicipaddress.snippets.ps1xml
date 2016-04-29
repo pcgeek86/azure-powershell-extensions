@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-publicipaddress</Title>
+                <Title>arm-json-publicipaddress</Title>
                 <Description>This snippet adds a Microsoft Azure Resource Manager (ARM) Public IP Address resource.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net</Author>
                 <SnippetTypes>

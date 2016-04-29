@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-authenticate</Title>
+                <Title>arm-core-authenticate</Title>
                 <Description>This snippet enables you to rapidly authenticate to Microsoft Azure Resource Manager (ARM) using Azure Active Directory (AAD).</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
                 <SnippetTypes>

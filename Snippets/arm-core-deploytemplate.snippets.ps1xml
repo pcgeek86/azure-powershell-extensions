@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-deploytemplate</Title>
+                <Title>arm-core-deploytemplate</Title>
                 <Description>This snippet enables you to rapidly deploy a Microsoft Azure Resource Manager (ARM) JSON Template.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
                 <SnippetTypes>
