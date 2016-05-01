@@ -38,7 +38,7 @@ $Deployment = @{
     }
     Mode = 'Incremental';        ### You can perform an "incremental" deployment or a "complete" deployment, 
                                  ### the latter of which wipes out all existing resources in the target Resource Group.
-    DeploymentDebugLevel = 'All';
+    DeploymentDebugLogLevel = 'All';
     Force = $true;
 }
 New-AzureRmResourceGroupDeployment @Deployment;
