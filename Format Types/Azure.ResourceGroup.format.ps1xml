@@ -34,7 +34,7 @@
                 <PropertyName>ProvisioningState</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>Tags</PropertyName>
+                <ScriptBlock>$PSItem.Tags | ForEach-Object -Begin { $TagList = '' } -Process { $TagList += '{0}={1};' -f $PSItem.Name, $PSItem.Value; } -End { $TagList }</ScriptBlock>
               </TableColumnItem>
             </TableColumnItems>
           </TableRowEntry>
