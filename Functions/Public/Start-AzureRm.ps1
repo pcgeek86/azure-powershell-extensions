@@ -24,5 +24,8 @@ function Start-AzureRm {
         Save-AzureRmProfile -Path $script:AzureProfilePath -Profile $AzureProfile;
     }
 
-    Import-IseSnippet -Module AzureExt;
+    ### Import the PowerShell ISE Snippets, if we are running inside PowerShell ISE
+    if ($Host.Name -match 'ISE') {
+        Import-IseSnippet -Module AzureExt;
+    }
 }
