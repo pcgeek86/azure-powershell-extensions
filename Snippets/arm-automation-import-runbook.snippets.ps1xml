@@ -2,7 +2,7 @@
     <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
         <Snippet Version='1.0.0'>
             <Header>
-                <Title>arm-import-runbook</Title>
+                <Title>arm-automation-import-runbook</Title>
                 <Description>This snippet enables you to rapidly import a Microsoft Azure Resource Manager (ARM) Automation Runbook.</Description>
                 <Author>Trevor Sullivan &lt;trevor@trevorsullivan.net&gt;</Author>
                 <SnippetTypes>
