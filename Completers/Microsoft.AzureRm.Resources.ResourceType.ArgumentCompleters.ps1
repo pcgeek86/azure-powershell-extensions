@@ -29,17 +29,15 @@ $ArgumentCompleter = @{
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
+        ### Helper function to find an authoritative list of all Azure Resource Manager (ARM) Resource Types
         function Get-AllARMResourceTypes {
             [CmdletBinding()]
             param ( )
             $ResourceProviderList = Get-AzureRmResourceProvider -ListAvailable;
 
-            ### An empty array to hold all the Resource Types
-            $ResourceTypeList = @();
-
             foreach ($ResourceProvider in $ResourceProviderList) {
                 foreach ($ResourceType in $ResourceProvider.ResourceTypes) {
-                    $ResourceTypeList += '{0}/{1}' -f $ResourceProvider.ProviderNamespace, $ResourceType.ResourceTypeName;
+                    '{0}/{1}' -f $ResourceProvider.ProviderNamespace, $ResourceType.ResourceTypeName;
                 }
             }
         }
