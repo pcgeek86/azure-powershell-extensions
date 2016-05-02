@@ -27,7 +27,7 @@ $ResourceGroup = @{
 New-AzureRmResourceGroup @ResourceGroup;
 #endregion
 
-#region Deploy an Azure Resource Manager (ARM) JSON Tepmlate
+#region Deploy an Azure Resource Manager (ARM) JSON Template
 $Deployment = @{
     ResourceGroupName = $ResourceGroup.Name ### This is the Resource Group where the ARM JSON Template will be deployed into
     Name = 'MyCoolDeployment';   ### This is the name of the Deployment object that will be created inside the Resource Group
