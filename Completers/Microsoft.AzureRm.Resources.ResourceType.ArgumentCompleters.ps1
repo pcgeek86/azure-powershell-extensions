@@ -33,7 +33,7 @@ $ArgumentCompleter = @{
         function Get-AllARMResourceTypes {
             [CmdletBinding()]
             param ( )
-            $ResourceProviderList = Get-AzureRmResourceProvider -ListAvailable;
+            $ResourceProviderList = Get-AzureRmResourceProvider -ListAvailable -WarningAction Ignore;
 
             foreach ($ResourceProvider in $ResourceProviderList) {
                 foreach ($ResourceType in $ResourceProvider.ResourceTypes) {
