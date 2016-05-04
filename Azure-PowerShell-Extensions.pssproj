@@ -38,6 +38,7 @@
     <Content Include="Completers\README.MD" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="en-us\README.md" />
+    <Content Include="Format Types\Azure.PublicIP.format.ps1xml" />
     <Content Include="Format Types\Azure.VirtualMachine.format.ps1xml" />
     <Content Include="README.md" />
     <Content Include="Snippets\arm-core-authenticate.snippets.ps1xml" />
@@ -61,6 +62,7 @@
     <Compile Include="Aliases\README.MD" />
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
+    <Compile Include="Completers\Microsoft.AzureRm.Resources.ResourceId.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.RedisCache.Name.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.ResourceLocks.Name.ArgumentCompleters - Copy.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Resources.ResourceType.ArgumentCompleters.ps1" />
