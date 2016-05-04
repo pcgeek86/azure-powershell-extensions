@@ -31,5 +31,6 @@ function Patch-ModuleManifest {
 	Set-Content -Path $Path -Value $ManifestContent;
 
 	$ManifestContent -match '(?<=ModuleVersion\s+=\s+'')(?<ModuleVersion>.*)(?='')';
+    Get-Content -Path $Path;
 	Write-Verbose -Message ('Module Version patched: ' + $Matches.ModuleVersion);
 }
