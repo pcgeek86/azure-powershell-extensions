@@ -86,9 +86,9 @@ $ArgumentCompleterList = @(
         'Start-AzureRmVM'
         'Stop-AzureRmVM'
         'Update-AzureRmVM'
+        'Invoke-AzureRmRemoteDesktop'
     );
     ParameterName = 'Name';
-    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Machine cmdlets: Get-AzureRmVm -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )
