@@ -62,6 +62,7 @@
     <Compile Include="Aliases\README.MD" />
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
+    <Compile Include="Completers\Microsoft.Azure.Storage.BlobName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Subscription.SubscriptionName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Resources.ResourceId.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.RedisCache.Name.ArgumentCompleters.ps1" />

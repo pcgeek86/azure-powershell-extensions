@@ -17,16 +17,23 @@
         #>
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-        $ItemList = Get-AzureRmSubscription | Where-Object { $PSItem.SubscriptionName -match $wordToComplete } | ForEach-Object {
-            $CompletionText = $PSItem.SubscriptionName;
-            $ToolTip = 'Azure subscription "{0}" with ID {1}.' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;
-            $ListItemText = '{0} ({1})' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;
-            $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+        $ErrorActionPreference = 'Stop';
 
-            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
-        }
+        try {
+            $ItemList = Get-AzureRmSubscription | Where-Object { $PSItem.SubscriptionName -match $wordToComplete } | ForEach-Object {
+                $CompletionText = $PSItem.SubscriptionName;
+                $ToolTip = 'Azure subscription "{0}" with ID {1}.' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;
+                $ListItemText = '{0} ({1})' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;
+                $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
+
+                New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
+            }
     
-        return $ItemList
+            return $ItemList
+        } catch {
+            $LogPath = '{0}\AzureExt.log' -f $env:TEMP;
+            Add-Content -Path $LogPath -Value ('{0}: Exception occurred' -f $PSItem.Exception.Message);
+        }
     }
 }
 
