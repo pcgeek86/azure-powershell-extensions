@@ -16,6 +16,13 @@ environment:
     secure: SlvbZKurugx1nGHlyk6VB1dXh3IJOWsY/Ds2bGBpknpze8R3os5pHGmPeyJXHv9K
 
 deploy_script:
+  ### Fix for NuGet 3.4+ issue. Downgrades to NuGet 3.3.0
+  - ps: Write-Host -NoNewline "Installing NuGet 3.3.0..."
+  - ps: if (Test-Path 'C:\Tools\NuGet3') { $nugetDir = 'C:\Tools\NuGet3' } else { $nugetDir = 'C:\Tools\NuGet' }
+  - ps: (New-Object Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/v3.3.0/nuget.exe', "$nugetDir\NuGet.exe")
+  - ps: Write-Host "OK" -ForegroundColor Green
+  ###
+
   - ps: . "$env:APPVEYOR_BUILD_FOLDER\Patch-ModuleManifest.ps1";
   - ps: Patch-ModuleManifest -BuildNumber $env:APPVEYOR_BUILD_NUMBER;
   - ps: try { Find-Package -Name zzzzzzzzzzzzz -Force -ForceBootstrap -ErrorAction Stop; } catch { Write-Warning -Message 'Finished bootstrap.'; };
