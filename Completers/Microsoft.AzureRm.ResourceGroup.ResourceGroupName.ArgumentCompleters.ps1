@@ -205,6 +205,7 @@ $ArgumentCompleter = @{
             'New-AzureRMSqlElasticPool'
             'New-AzureRMSqlServer'
             'New-AzureRMSqlServerFirewallRule'
+            'New-AzureRmStorageAccount'
             'New-AzureRMStreamAnalyticsInput'
             'New-AzureRMStreamAnalyticsJob'
             'New-AzureRMStreamAnalyticsOutput'
