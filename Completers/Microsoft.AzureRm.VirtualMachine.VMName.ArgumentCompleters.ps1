@@ -13,7 +13,7 @@ $ScriptBlock = {
         try {
             $StorageAccountList = Get-AzureRmVm | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
                 $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
-                $ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.Name, $PSItem.Location;
+                $ToolTip = 'Virtual Machine "{0}" in "{1}" region.' -f $PSItem.Name, $PSItem.Location;
                 $ListItemText = '{0} ({1})' -f $PSItem.Name, $PSItem.Location;
                 $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
 
