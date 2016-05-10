@@ -39,6 +39,7 @@
     <Content Include="Completers\README.MD" />
     <Content Include="en-us\about_AzureExtensions.help.txt" />
     <Content Include="en-us\README.md" />
+    <Content Include="Format Types\Azure.StorageAccount.format.ps1xml" />
     <Content Include="Format Types\Azure.PublicIP.format.ps1xml" />
     <Content Include="Format Types\Azure.VirtualMachine.format.ps1xml" />
     <Content Include="README.md" />
