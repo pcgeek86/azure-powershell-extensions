@@ -18,6 +18,7 @@
             <Width>12</Width>
           </TableColumnHeader>
           <TableColumnHeader>
+            <Label>Custom Domain</Label>
             <Width>20</Width>
           </TableColumnHeader>
           <TableColumnHeader>
@@ -34,13 +35,13 @@
                 <PropertyName>ResourceGroupName</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>Name</PropertyName>
+                <PropertyName>StorageAccountName</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>Location</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>CustomDomain</PropertyName>
+                <ScriptBlock>$PSItem.CustomDomain.Name</ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>Encryption</PropertyName>
