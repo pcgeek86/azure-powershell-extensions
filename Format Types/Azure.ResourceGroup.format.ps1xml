@@ -18,6 +18,7 @@
             <Width>12</Width>
           </TableColumnHeader>
           <TableColumnHeader>
+            <Label>Tags</Label>
             <Width>50</Width>
           </TableColumnHeader>
         </TableHeaders>

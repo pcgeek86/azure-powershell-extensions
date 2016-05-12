@@ -45,7 +45,6 @@ $ArgumentCompleterList = @(
             'Test-AzureRMResourceGroupTemplate'
         );
         ParameterName = 'StorageAccountName';
-        #Description = 'Complete the -StorageAccountName parameter value for Azure Resource Manager (ARM) cmdlets: Get-AzureRmStorageAccountKey -StorageAccountName <TAB>';
         ScriptBlock = $ScriptBlock;
     };
     @{
@@ -57,7 +56,6 @@ $ArgumentCompleterList = @(
             'Set-AzureRmStorageAccount'
         );
         ParameterName = 'Name';
-        #Description = '';
         ScriptBlock = $ScriptBlock;
     }
 )
