@@ -54,6 +54,7 @@ $ArgumentCompleterList = @(
             'Get-AzureRmStorageAccount'
             'New-AzureRmStorageAccount'
             'Set-AzureRmStorageAccount'
+			'Remove-AzureRmStorageAccount'
         );
         ParameterName = 'Name';
         ScriptBlock = $ScriptBlock;
