@@ -18,7 +18,7 @@ function Start-AzureRm {
     try {
         ### Load the Azure Profile from the local disk
         $null = Select-AzureRmProfile -Path $script:AzureProfilePath;
-        Find-AzureRmResourceGroup -Tag @{ Name = 'Company'; } -WarningAction Ignore;
+        Find-AzureRmResourceGroup -Tag @{ Name = 'NonExistentTag'; } -WarningAction Ignore;
     } catch {
         $AzureProfile = Add-AzureRmAccount -Credential (Get-Credential);
         Save-AzureRmProfile -Path $script:AzureProfilePath -Profile $AzureProfile;
