@@ -17,8 +17,8 @@ function Publish-AzureStorageBlob {
     if (!$StorageAccount) {
         throw 'No Azure Storage Account was selected. Please re-run the command and select a Microsoft Azure Storage Account.';
     }
-    $StorageKey = Get-AzureRmStorageKey -StorageAccountName $StorageAccount.StorageAccountName;
-    $StorageContext = New-AzureStorageContext -StorageAccountName $StorageKey.StorageAccountName -StorageAccountKey $StorageKey.Primary;
+    $StorageKey = Get-AzureRmStorageAccountKey -StorageAccountName $StorageAccount.StorageAccountName;
+    $StorageContext = New-AzureStorageContext -StorageAccountName $StorageAccount.StorageAccountName -StorageAccountKey $StorageKey.Primary;
     
     ### Prompt user to select a Microsoft Azure Blob Container (inside the Storage Account) to upload the file(s) to
     $ContainerList = Get-AzureStorageContainer -Context $StorageContext;
