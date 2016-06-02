@@ -65,6 +65,7 @@
     <Compile Include="AzureExt.psd1" />
     <Compile Include="AzureExt.psm1" />
     <Compile Include="Completers\Microsoft.Azure.Storage.BlobName.ArgumentCompleters.ps1" />
+    <Compile Include="Completers\Microsoft.AzureRm.SQL.CollationName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.DNS.ZoneName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Automation.RunbookName.ArgumentCompleters.ps1" />
     <Compile Include="Completers\Microsoft.AzureRm.Subscription.SubscriptionName.ArgumentCompleters.ps1" />
