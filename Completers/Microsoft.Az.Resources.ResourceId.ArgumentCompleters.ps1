@@ -10,7 +10,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $ObjectList = Get-AzureRmResource -ErrorAction Stop -WarningAction Ignore;
+            $ObjectList = Get-AzResource -ErrorAction Stop -WarningAction Ignore;
         } catch {
             Write-Host -Object ('Error occurred retrieving Automation Accounts: {0}' -f $PSItem.Exception.Message);
         }
@@ -27,38 +27,38 @@ $ScriptBlock = {
     }
 $ArgumentCompleter = @{
         ### NOTE: Use this command to generate command list:
-        ### (Get-Command -Module AzureRM* -ParameterName ResourceId).Name.ForEach({ "'{0}'," -f $PSItem }) | Set-Clipboard
+        ### (Get-Command -Module Az* -ParameterName ResourceId).Name.ForEach({ "'{0}'," -f $PSItem }) | Set-Clipboard
         CommandName = @(
-            'Get-AzureRmAlertHistory',
-            'Get-AzureRmAutoscaleHistory',
-            'Get-AzureRmDiagnosticSetting',
-            'Get-AzureRmLog',
-            'Get-AzureRmMetric',
-            'Get-AzureRmMetricDefinition',
-            'Get-AzureRmPolicyAssignment',
-            'Get-AzureRmPolicyDefinition',
-            'Get-AzureRmResource',
-            'Get-AzureRmResourceGroup',
-            'Get-AzureRmResourceGroupDeployment',
-            'Get-AzureRmResourceLock',
-            'Get-AzureRmUsage',
-            'Invoke-AzureRmResourceAction',
-            'Move-AzureRmResource',
-            'New-AzureRmResource',
-            'New-AzureRmResourceLock',
-            'Remove-AzureRmPolicyAssignment',
-            'Remove-AzureRmPolicyDefinition',
-            'Remove-AzureRmResource',
-            'Remove-AzureRmResourceGroup',
-            'Remove-AzureRmResourceGroupDeployment',
-            'Remove-AzureRmResourceLock',
-            'Set-AzureRmDiagnosticSetting',
-            'Set-AzureRmPolicyAssignment',
-            'Set-AzureRmPolicyDefinition',
-            'Set-AzureRmResource',
-            'Set-AzureRmResourceGroup',
-            'Set-AzureRmResourceLock',
-            'Stop-AzureRmResourceGroupDeployment'
+            'Get-AzAlertHistory',
+            'Get-AzAutoscaleHistory',
+            'Get-AzDiagnosticSetting',
+            'Get-AzLog',
+            'Get-AzMetric',
+            'Get-AzMetricDefinition',
+            'Get-AzPolicyAssignment',
+            'Get-AzPolicyDefinition',
+            'Get-AzResource',
+            'Get-AzResourceGroup',
+            'Get-AzResourceGroupDeployment',
+            'Get-AzResourceLock',
+            'Get-AzUsage',
+            'Invoke-AzResourceAction',
+            'Move-AzResource',
+            'New-AzResource',
+            'New-AzResourceLock',
+            'Remove-AzPolicyAssignment',
+            'Remove-AzPolicyDefinition',
+            'Remove-AzResource',
+            'Remove-AzResourceGroup',
+            'Remove-AzResourceGroupDeployment',
+            'Remove-AzResourceLock',
+            'Set-AzDiagnosticSetting',
+            'Set-AzPolicyAssignment',
+            'Set-AzPolicyDefinition',
+            'Set-AzResource',
+            'Set-AzResourceGroup',
+            'Set-AzResourceLock',
+            'Stop-AzResourceGroupDeployment'
         );
         ParameterName = 'ResourceId';
         ScriptBlock = $ScriptBlock;

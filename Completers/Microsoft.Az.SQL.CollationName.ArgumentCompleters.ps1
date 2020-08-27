@@ -97,7 +97,7 @@ $ScriptBlock = {
 
 $ArgumentCompleter = @{
         CommandName = @(
-			'New-AzureRmSqlDatabase'
+			'New-AzSqlDatabase'
 		);
         ParameterName = 'CollationName';
         ScriptBlock = $ScriptBlock;

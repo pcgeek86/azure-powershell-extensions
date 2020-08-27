@@ -1,17 +1,17 @@
 $ArgumentCompleter = @{
     CommandName = @(
-        'Get-AzureRmResource'
-        'Get-AzureRmResourceLock'
-        'Get-AzureRmRoleAssignment'
-        'Invoke-AzureRmResourceAction'
-        'New-AzureRmResource'
-        'New-AzureRmResourceLock'
-        'New-AzureRmRoleAssignment'
-        'Remove-AzureRmResource'
-        'Remove-AzureRmResourceLock'
-        'Remove-AzureRmRoleAssignment'
-        'Set-AzureRmResource'
-        'Set-AzureRmResourceLock'
+        'Get-AzResource'
+        'Get-AzResourceLock'
+        'Get-AzRoleAssignment'
+        'Invoke-AzResourceAction'
+        'New-AzResource'
+        'New-AzResourceLock'
+        'New-AzRoleAssignment'
+        'Remove-AzResource'
+        'Remove-AzResourceLock'
+        'Remove-AzRoleAssignment'
+        'Set-AzResource'
+        'Set-AzResourceLock'
     );
     ParameterName = 'ResourceName';
     #Description = 'Complete the -ResourceName parameter value for Azure Resource Manager cmdlets: Get-AzureResource -ResourceName <TAB>';
@@ -28,7 +28,7 @@ $ArgumentCompleter = @{
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         ### Create fresh completion results for Azure virtual machines
-        $ItemList = Get-AzureRmResource | Where-Object { $PSItem.ResourceName -match $wordToComplete } | ForEach-Object {
+        $ItemList = Get-AzResource | Where-Object { $PSItem.ResourceName -match $wordToComplete } | ForEach-Object {
             $CompletionText = '{0} -ResourceType {1} -ResourceGroupName {2}' -f $PSItem.ResourceName, $PSItem.ResourceType, $PSItem.ResourceGroupName;
             $ToolTip = 'Resource {0} of type {1} in Resource Group {2}' -f $PSItem.ResourceName, $PSItem.ResourceType, $PSItem.ResourceGroupName;
             $ListItemText = '{0} ({1})' -f $PSItem.ResourceName, $PSItem.ResourceGroupName;

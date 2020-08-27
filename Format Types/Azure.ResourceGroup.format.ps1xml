@@ -5,6 +5,7 @@
       <Name>AzureResourceGroup</Name>
       <ViewSelectedBy>
         <TypeName>Microsoft.Azure.Commands.Resources.Models.PSResourceGroup</TypeName>
+        <TypeName>Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResourceGroup</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -35,7 +36,7 @@
                 <PropertyName>ProvisioningState</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
-                <ScriptBlock>$PSItem.Tags | ForEach-Object -Begin { $TagList = '' } -Process { $TagList += '{0}={1};' -f $PSItem.Name, $PSItem.Value; } -End { $TagList }</ScriptBlock>
+                <ScriptBlock>$PSItem.Tags | ForEach-Object -Begin { $TagList = '' } -Process { if ($PSItem) { $TagList += '{0}={1};' -f $PSItem.Name, $PSItem.Value; } } -End { $TagList }</ScriptBlock>
               </TableColumnItem>
             </TableColumnItems>
           </TableRowEntry>

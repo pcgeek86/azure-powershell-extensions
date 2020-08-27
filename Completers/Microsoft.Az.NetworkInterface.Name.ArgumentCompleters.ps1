@@ -11,13 +11,13 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $CompletionList = Get-AzureRmNetworkInterface | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+            $CompletionList = Get-AzNetworkInterface | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
                 $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
                 $ToolTip = 'Network Interface "{0}" in "{1}" region, member of "{2}" Resource Group.' -f $PSItem.Name, $PSItem.Location, $PSItem.ResourceGroup;
                 $ListItemText = '{0}\{1} ({2})' -f $PSItem.ResourceGroupName, $PSItem.Name, $PSItem.Location;
                 $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
 
-                New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
+                [System.Management.Automation.CompletionResult]::new($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
             }
 
             return $CompletionList;
@@ -30,13 +30,13 @@ $ScriptBlock = {
 $ArgumentCompleterList = @(
     @{
     CommandName = @(
-        'Get-AzureRmNetworkInterface'
-        'New-AzureRmNetworkInterface'
-        'Remove-AzureRmNetworkInterface'
-        'Set-AzureRmNetworkInterface'
+        'Get-AzNetworkInterface'
+        'New-AzNetworkInterface'
+        'Remove-AzNetworkInterface'
+        'Set-AzNetworkInterface'
     );
     ParameterName = 'Name';
-    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Network Interface cmdlets: Get-AzureRmNetworkInterface -Name <TAB>';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Network Interface cmdlets: Get-AzNetworkInterface -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )

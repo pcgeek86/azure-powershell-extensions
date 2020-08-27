@@ -11,7 +11,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $StorageAccountList = Get-AzureRmStorageAccount | Where-Object -FilterScript { $PSItem.StorageAccountName -match $wordToComplete } | ForEach-Object {
+            $StorageAccountList = Get-AzStorageAccount | Where-Object -FilterScript { $PSItem.StorageAccountName -match $wordToComplete } | ForEach-Object {
                 $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.StorageAccountName, $PSItem.ResourceGroupName;
                 $ToolTip = 'Storage Account "{0}" in "{1}" region.' -f $PSItem.StorageAccountName, $PSItem.Location;
                 $ListItemText = '{0} ({1})' -f $PSItem.StorageAccountName, $PSItem.Location;
@@ -30,31 +30,31 @@ $ScriptBlock = {
 $ArgumentCompleterList = @(
     @{
         CommandName = @(
-            'Add-AzureRMHDInsightStorage'
-            'New-AzureRMResourceGroup'
-            'New-AzureRMResourceGroupDeployment'
-            'New-AzureRMStorageContext'
-            'Publish-AzureRMVMDscConfiguration'
-            'Remove-AzureRMStorageAccount'
-            'Restore-AzureRMBackupItem'
-            'Set-AzureRMHDInsightDefaultStorage'
-            'Set-AzureRMSqlDatabaseAuditingPolicy'
-            'Set-AzureRMSqlServerAuditingPolicy'
-            'Set-AzureRMVMCustomScriptExtension'
-            'Set-AzureRMVMDscExtension'
-            'Test-AzureRMResourceGroupTemplate'
+            'Add-AzHDInsightStorage'
+            'New-AzResourceGroup'
+            'New-AzResourceGroupDeployment'
+            'New-AzStorageContext'
+            'Publish-AzVMDscConfiguration'
+            'Remove-AzStorageAccount'
+            'Restore-AzBackupItem'
+            'Set-AzHDInsightDefaultStorage'
+            'Set-AzSqlDatabaseAuditingPolicy'
+            'Set-AzSqlServerAuditingPolicy'
+            'Set-AzVMCustomScriptExtension'
+            'Set-AzVMDscExtension'
+            'Test-AzResourceGroupTemplate'
         );
         ParameterName = 'StorageAccountName';
         ScriptBlock = $ScriptBlock;
     };
     @{
         CommandName = @(
-            'Get-AzureRmStorageAccountKey'
-            'New-AzureRmStorageAccountKey'
-            'Get-AzureRmStorageAccount'
-            'New-AzureRmStorageAccount'
-            'Set-AzureRmStorageAccount'
-			'Remove-AzureRmStorageAccount'
+            'Get-AzStorageAccountKey'
+            'New-AzStorageAccountKey'
+            'Get-AzStorageAccount'
+            'New-AzStorageAccount'
+            'Set-AzStorageAccount'
+			'Remove-AzStorageAccount'
         );
         ParameterName = 'Name';
         ScriptBlock = $ScriptBlock;

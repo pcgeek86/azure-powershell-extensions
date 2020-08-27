@@ -2,19 +2,19 @@ $ArgumentCompleter = @{
     ### Refresh this list of commands, using this command:
     ### (Get-Command -ParameterName ResourceType).Name.ForEach({ "'{0}'," -f $PSItem }) | Set-Clipboard
     CommandName = @(
-        'Find-AzureRmResource',
-        'Get-AzureRmResource',
-        'Get-AzureRmResourceLock',
-        'Get-AzureRmRoleAssignment',
-        'Invoke-AzureRmResourceAction',
-        'New-AzureRmResource',
-        'New-AzureRmResourceLock',
-        'New-AzureRmRoleAssignment',
-        'Remove-AzureRmResource',
-        'Remove-AzureRmResourceLock',
-        'Remove-AzureRmRoleAssignment',
-        'Set-AzureRmResource',
-        'Set-AzureRmResourceLock'
+        'Find-AzResource',
+        'Get-AzResource',
+        'Get-AzResourceLock',
+        'Get-AzRoleAssignment',
+        'Invoke-AzResourceAction',
+        'New-AzResource',
+        'New-AzResourceLock',
+        'New-AzRoleAssignment',
+        'Remove-AzResource',
+        'Remove-AzResourceLock',
+        'Remove-AzRoleAssignment',
+        'Set-AzResource',
+        'Set-AzResourceLock'
     );
     ParameterName = 'ResourceType';
     ScriptBlock = {
@@ -33,7 +33,7 @@ $ArgumentCompleter = @{
         function Get-AllARMResourceTypes {
             [CmdletBinding()]
             param ( )
-            $ResourceProviderList = Get-AzureRmResourceProvider -ListAvailable -WarningAction Ignore;
+            $ResourceProviderList = Get-AzResourceProvider -ListAvailable -WarningAction Ignore;
 
             foreach ($ResourceProvider in $ResourceProviderList) {
                 foreach ($ResourceType in $ResourceProvider.ResourceTypes) {

@@ -1,9 +1,9 @@
 ﻿$ArgumentCompleter = @{
-        ### (Get-Command -Module AzureRM* -ParameterName SubscriptionName -Type Cmdlet).Name.ForEach({ "'{0}'," -f $PSItem }) | Set-Clipboard;
+        ### (Get-Command -Module Az* -ParameterName SubscriptionName -Type Cmdlet).Name.ForEach({ "'{0}'," -f $PSItem }) | Set-Clipboard;
         CommandName = @(
-            'Add-AzureRmAccount',
-            'Get-AzureRmSubscription',
-            'Set-AzureRmContext'
+            'Add-AzAccount',
+            'Get-AzSubscription',
+            'Set-AzContext'
             );
         ParameterName = 'SubscriptionName';
         ScriptBlock = {
@@ -20,7 +20,7 @@
         $ErrorActionPreference = 'Stop';
 
         try {
-            $ItemList = Get-AzureRmSubscription | Where-Object { $PSItem.SubscriptionName -match $wordToComplete } | ForEach-Object {
+            $ItemList = Get-AzSubscription | Where-Object { $PSItem.SubscriptionName -match $wordToComplete } | ForEach-Object {
                 $CompletionText = $PSItem.SubscriptionName;
                 $ToolTip = 'Azure subscription "{0}" with ID {1}.' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;
                 $ListItemText = '{0} ({1})' -f $PSItem.SubscriptionName, $PSItem.SubscriptionId;

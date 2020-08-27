@@ -11,7 +11,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $CompletionList = Get-AzureRmVirtualNetwork | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+            $CompletionList = Get-AzVirtualNetwork | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
                 $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
                 $ToolTip = 'Virtual Network "{0}" in "{1}" region, member of "{2}" Resource Group.' -f $PSItem.Name, $PSItem.Location, $PSItem.ResourceGroup;
                 $ListItemText = '{1} ({0}, {2})' -f $PSItem.ResourceGroupName, $PSItem.Name, $PSItem.Location;
@@ -30,23 +30,23 @@ $ScriptBlock = {
 $ArgumentCompleterList = @(
     @{
     CommandName = @(
-        'Get-AzureRmLocalNetworkGateway'
-        'Get-AzureRmVirtualNetwork'
-        'Get-AzureRmVirtualNetworkGateway'
-        'Get-AzureRmVirtualNetworkGatewayConnection'
-        'Get-AzureRmVirtualNetworkGatewayConnectionSharedKey'
-        'New-AzureRmVirtualNetwork'
-        'New-AzureRmVirtualNetworkGateway'
-        'New-AzureRmVirtualNetworkGatewayConnection'
-        'New-AzureRmVirtualNetworkSubnetConfig'
-        'Remove-AzureRmVirtualNetwork'
-        'Remove-AzureRmVirtualNetworkGateway'
-        'Remove-AzureRmVirtualNetworkGatewayConnection'
-        'Reset-AzureRmVirtualNetworkGatewayConnectionSharedKey'
-        'Set-AzureRmVirtualNetworkGatewayConnectionSharedKey'
+        'Get-AzLocalNetworkGateway'
+        'Get-AzVirtualNetwork'
+        'Get-AzVirtualNetworkGateway'
+        'Get-AzVirtualNetworkGatewayConnection'
+        'Get-AzVirtualNetworkGatewayConnectionSharedKey'
+        'New-AzVirtualNetwork'
+        'New-AzVirtualNetworkGateway'
+        'New-AzVirtualNetworkGatewayConnection'
+        'New-AzVirtualNetworkSubnetConfig'
+        'Remove-AzVirtualNetwork'
+        'Remove-AzVirtualNetworkGateway'
+        'Remove-AzVirtualNetworkGatewayConnection'
+        'Reset-AzVirtualNetworkGatewayConnectionSharedKey'
+        'Set-AzVirtualNetworkGatewayConnectionSharedKey'
     );
     ParameterName = 'Name';
-    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Network cmdlets: Get-AzureRmVirtualNetwork -Name <TAB>';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Virtual Network cmdlets: Get-AzVirtualNetwork -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )

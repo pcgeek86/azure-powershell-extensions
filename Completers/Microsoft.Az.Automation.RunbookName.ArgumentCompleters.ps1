@@ -4,7 +4,7 @@ $ScriptBlock = {
         Auto-complete the -Name parameter value for Azure Automation Runbook Azure Resource Manager (ARM) PowerShell cmdlets.
 		
 		NOTE: Use this command to find commands that this auto-completer applies to: 
-		(Get-Command -Module AzureRM.Automation -Name *runbook* -ParameterName Name).ForEach({ "'{0}'" -f $PSItem.Name }) | Set-Clipboard
+		(Get-Command -Module Az.Automation -Name *runbook* -ParameterName Name).ForEach({ "'{0}'" -f $PSItem.Name }) | Set-Clipboard
 
         .NOTES
         Created by Trevor Sullivan <trevor@trevorsullivan.net>
@@ -13,7 +13,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $ObjectList = Get-AzureRmAutomationRunbook -AutomationAccountName $fakeBoundParameter["AutomationAccountName"] -ResourceGroupName $fakeBoundParameter["ResourceGroupName"] -ErrorAction Stop -WarningAction Ignore;
+            $ObjectList = Get-AzAutomationRunbook -AutomationAccountName $fakeBoundParameter["AutomationAccountName"] -ResourceGroupName $fakeBoundParameter["ResourceGroupName"] -ErrorAction Stop -WarningAction Ignore;
         } catch {
             Write-Host -Object ('Error occurred retrieving Automation Runbooks: {0}' -f $PSItem.Exception.Message);
         }
@@ -31,17 +31,17 @@ $ScriptBlock = {
 
 $ArgumentCompleter = @{
         CommandName = @(
-			'Export-AzureRmAutomationRunbook'
-			'Get-AzureRmAutomationRunbook'
-			'Get-AzureRmAutomationScheduledRunbook'
-			'Import-AzureRmAutomationRunbook'
-			'New-AzureRmAutomationRunbook'
-			'Publish-AzureRmAutomationRunbook'
-			'Register-AzureRmAutomationScheduledRunbook'
-			'Remove-AzureRmAutomationRunbook'
-			'Set-AzureRmAutomationRunbook'
-			'Start-AzureRmAutomationRunbook'
-			'Unregister-AzureRmAutomationScheduledRunbook'
+			'Export-AzAutomationRunbook'
+			'Get-AzAutomationRunbook'
+			'Get-AzAutomationScheduledRunbook'
+			'Import-AzAutomationRunbook'
+			'New-AzAutomationRunbook'
+			'Publish-AzAutomationRunbook'
+			'Register-AzAutomationScheduledRunbook'
+			'Remove-AzAutomationRunbook'
+			'Set-AzAutomationRunbook'
+			'Start-AzAutomationRunbook'
+			'Unregister-AzAutomationScheduledRunbook'
 		);
         ParameterName = 'Name';
         ScriptBlock = $ScriptBlock;

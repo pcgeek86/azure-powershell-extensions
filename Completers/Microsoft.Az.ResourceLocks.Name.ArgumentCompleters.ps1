@@ -1,9 +1,9 @@
 $ArgumentCompleter = @{
     CommandName = @(
-        'Get-AzureRmResourceLock',
-        'New-AzureRmResourceLock',
-        'Remove-AzureRmResourceLock',
-        'Set-AzureRmResourceLock'
+        'Get-AzResourceLock',
+        'New-AzResourceLock',
+        'Remove-AzResourceLock',
+        'Set-AzResourceLock'
     );
     ParameterName = 'LockName';
     ScriptBlock = {
@@ -19,7 +19,7 @@ $ArgumentCompleter = @{
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         ### Create fresh completion results for Azure virtual machines
-        $ItemList = Get-AzureRmResourceLock | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+        $ItemList = Get-AzResourceLock | Where-Object { $PSItem.Name -match $wordToComplete } | ForEach-Object {
             $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
             $ToolTip = 'Lock named {0} applied to Resource Group {1}' -f $PSItem.ResourceName, $PSItem.ResourceGroupName;
             $ListItemText = '{0} ({1})' -f $PSItem.Name, $PSItem.ResourceGroupName;

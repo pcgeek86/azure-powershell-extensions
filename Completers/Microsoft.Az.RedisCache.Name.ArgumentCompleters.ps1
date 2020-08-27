@@ -11,7 +11,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $CompletionList = Get-AzureRmRedisCache | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
+            $CompletionList = Get-AzRedisCache | Where-Object -FilterScript { $PSItem.Name -match $wordToComplete } | ForEach-Object {
                 $CompletionText = '{0} -ResourceGroupName {1}' -f $PSItem.Name, $PSItem.ResourceGroupName;
                 $ToolTip = 'Redis Cache "{0}" in "{1}" region, member of "{2}" Resource Group.' -f $PSItem.Name, $PSItem.Location, $PSItem.ResourceGroupName;
                 $ListItemText = '{0} ({1}, {2})' -f $PSItem.Name, $PSItem.ResourceGroupName, $PSItem.Location;
@@ -30,15 +30,15 @@ $ScriptBlock = {
 $ArgumentCompleterList = @(
     @{
     CommandName = @(
-        'Get-AzureRmRedisCache'
-        'Get-AzureRmRedisCacheKey'
-        'New-AzureRmRedisCache'
-        'New-AzureRmRedisCacheKey'
-        'Remove-AzureRmRedisCache'
-        'Set-AzureRmRedisCache'
+        'Get-AzRedisCache'
+        'Get-AzRedisCacheKey'
+        'New-AzRedisCache'
+        'New-AzRedisCacheKey'
+        'Remove-AzRedisCache'
+        'Set-AzRedisCache'
     );
     ParameterName = 'Name';
-    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Redis Cache cmdlets: Get-AzureRmRedisCache -Name <TAB>';
+    #Description = 'Complete the -Name parameter value for Azure Resource Manager (ARM) Redis Cache cmdlets: Get-AzRedisCache -Name <TAB>';
     ScriptBlock = $ScriptBlock;
     };
 )

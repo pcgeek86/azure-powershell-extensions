@@ -1,0 +1,5 @@
+{
+    "powershell.codeFormatting.addWhitespaceAroundPipe": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+}

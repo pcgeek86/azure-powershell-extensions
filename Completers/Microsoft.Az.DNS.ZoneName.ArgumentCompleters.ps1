@@ -10,7 +10,7 @@ $ScriptBlock = {
         param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
         try {
-            $ObjectList = Get-AzureRmDnsZone -ResourceGroupName $fakeBoundParameter["ResourceGroupName"] -ErrorAction Stop -WarningAction Ignore;
+            $ObjectList = Get-AzDnsZone -ResourceGroupName $fakeBoundParameter["ResourceGroupName"] -ErrorAction Stop -WarningAction Ignore;
         } catch {
             Write-Host -Object ('Error occurred retrieving DNS Zones: {0}' -f $PSItem.Exception.Message);
         }
@@ -20,7 +20,7 @@ $ScriptBlock = {
             $ListItemText = '{0}' -f $PSItem.Name;
             $CompletionResultType = [System.Management.Automation.CompletionResultType]::ParameterValue;
 
-            New-Object -TypeName System.Management.Automation.CompletionResult -ArgumentList @($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
+            [System.Management.Automation.CompletionResult]::new($CompletionText, $ListItemText, $CompletionResultType, $ToolTip);
         }
 
         return $ItemList
@@ -28,9 +28,9 @@ $ScriptBlock = {
 
 $ArgumentCompleter = @{
         CommandName = @(
-			'Get-AzureRmDnsRecordSet',
-			'New-AzureRmDnsRecordSet',
-			'Remove-AzureRmDnsRecordSet'
+			'Get-AzDnsRecordSet',
+			'New-AzDnsRecordSet',
+			'Remove-AzDnsRecordSet'
 		);
         ParameterName = 'ZoneName';
         ScriptBlock = $ScriptBlock;
@@ -40,10 +40,10 @@ Microsoft.PowerShell.Core\Register-ArgumentCompleter @ArgumentCompleter;
 
 $ArgumentCompleter = @{
         CommandName = @(
-			'Get-AzureRmDnsZone',
-			'New-AzureRmDnsZone',
-			'Remove-AzureRmDnsZone',
-			'Set-AzureRmDnsZone'
+			'Get-AzDnsZone',
+			'New-AzDnsZone',
+			'Remove-AzDnsZone',
+			'Set-AzDnsZone'
 		);
         ParameterName = 'Name';
         ScriptBlock = $ScriptBlock;
